@@ -10,7 +10,7 @@ const NavBar = () => {
           <li>Ugly</li>
           <li>Scary</li>
           <li>Toxic</li>
-          <li>Author</li>
+          <li>Author11</li>
         </ul>
       </nav>
     </div>
