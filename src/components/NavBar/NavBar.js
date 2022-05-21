@@ -4,13 +4,13 @@ const NavBar = () => {
       <h1 className="blog-name">Funny Nature Blog</h1>
       <nav className="navbar">
         <ul>
-          <li>Home</li>
-          <li>Cute</li>
-          <li>Beautiful</li>
-          <li>Ugly</li>
-          <li>Scary</li>
-          <li>Toxic</li>
-          <li>Author</li>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Cute</a></li>
+          <li><a href="#">Beautiful</a></li>
+          <li><a href="#">Ugly</a></li>
+          <li><a href="#">Scary</a></li>
+          <li><a href="#">Toxic</a></li>
+          <li><a href="#">Author</a></li>
         </ul>
       </nav>
     </div>

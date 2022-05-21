@@ -6,4 +6,5 @@ const client = createClient({
     accessToken: process.env.REACT_APP_ACCESS_TOKEN
 })
 
+
 export default client
