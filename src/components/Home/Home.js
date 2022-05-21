@@ -99,13 +99,13 @@ function Home() {
 
   if (!story) return null
 
-console.log(story.items[0])
-const firstStory = story.items[0]
+//console.log(story.items[0])
+const firstStory = story.items[5]
 
     return (
       <div className="Home">
           <NavBar />
-          <BlogPosts title= {firstStory.fields.titel}  image={firstStory.fields.image}  descriptionShort={firstStory.fields.descriptionShort} /* descriptionLong={firstStory.fields.descriptionLong} */ date={firstStory.fields.date}/>
+         {/*  <BlogPosts title= {firstStory.fields.titel}  image={firstStory.fields.image}  descriptionShort={firstStory.fields.descriptionShort} /* descriptionLong={firstStory.fields.descriptionLong} date={firstStory.fields.date}/> */}
       
       {/* <h1>{firstStory.fields.titel}</h1>
       {documentToReactComponents(firstStory.fields.descriptionLong)} */}
@@ -116,7 +116,7 @@ const firstStory = story.items[0]
               <StoryCard key={index} story={story} storyNum={index} />
             ))}  */}
 
-    {/* <Article/> */}
+    {<Article story={firstStory}/> }
       </div>
     );
   }
