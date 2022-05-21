@@ -2,6 +2,9 @@ import React, { useState, useEffect } from "react";
 import "./Home.css";
 import NavBar from "../NavBar/NavBar";
 import client from "../../contentful/client"
+import BlogPosts from "../BlogPosts/BlogPosts"
+import Article from "../Article/Article";
+
 
 
 
@@ -34,7 +37,7 @@ function Home() {
 
  useEffect(() => {
   // client.getEntry("6JskwXzBBLXONlsAUGspWg").then(entry => console.log(entry))
-  client.getEntries("75xB8zLv3VtbXdOscsS6Yd").then(data => console.log(data))
+  client.getEntries({ content_type: "blog" }).then(data => setStory(data))
 
  }, [])
 
@@ -93,10 +96,19 @@ function Home() {
       </div>
     );
   } else { */
+
+  if (!story) return null
+
+console.log(story.items[0])
+const firstStory = story.items[0]
+
     return (
       <div className="Home">
           <NavBar />
-
+          <BlogPosts title= {firstStory.fields.titel}  image={firstStory.fields.image}  descriptionShort={firstStory.fields.descriptionShort} /* descriptionLong={firstStory.fields.descriptionLong} */ date={firstStory.fields.date}/>
+      
+      {/* <h1>{firstStory.fields.titel}</h1>
+      {documentToReactComponents(firstStory.fields.descriptionLong)} */}
   {/*       {news &&
           news.hits
             .filter((story) => story.url !== null)
@@ -104,7 +116,7 @@ function Home() {
               <StoryCard key={index} story={story} storyNum={index} />
             ))}  */}
 
-    
+    {/* <Article/> */}
       </div>
     );
   }
