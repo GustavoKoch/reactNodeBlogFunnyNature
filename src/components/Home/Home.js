@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
-import "./Home.css";
+import "./Home.css"
+import "../NavBar/NavBar.css";
+import "../BlogPosts/BlogPosts.css";
 import NavBar from "../NavBar/NavBar";
 import client from "../../contentful/client"
 import BlogPosts from "../BlogPosts/BlogPosts"
@@ -100,12 +102,13 @@ function Home() {
   if (!story) return null
 
 console.log(story.items[0])
-const firstStory = story.items[0]
+const firstStory = story.items[2]
 
     return (
       <div className="Home">
           <NavBar />
-          <BlogPosts title= {firstStory.fields.titel}  image={firstStory.fields.image}  descriptionShort={firstStory.fields.descriptionShort} /* descriptionLong={firstStory.fields.descriptionLong} */ date={firstStory.fields.date}/>
+          {story.items.map((article, index) =>
+          <BlogPosts key={index} title={article.fields.titel} image={article.fields.image.fields.file.url} imageAlt={article.fields.image.fields.description} descriptionShort={article.fields.descriptionShort} descriptionLong={article.fields.descriptionLong} date={article.fields.date}/>)}
       
       {/* <h1>{firstStory.fields.titel}</h1>
       {documentToReactComponents(firstStory.fields.descriptionLong)} */}
