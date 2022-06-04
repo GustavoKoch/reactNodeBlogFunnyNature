@@ -6,116 +6,109 @@ import ReactStars from "react-stars";
 import { FaBeer, FaTwitter, FaHeart } from "react-icons/fa";
 import { MailIcon } from "react-mail-icon";
 import React, { useState } from "react";
-import TimeAgo from 'react-timeago';
-import Parser from 'html-react-parser';
+import TimeAgo from "react-timeago";
+import Parser from "html-react-parser";
+import { useParams } from "react-router-dom";
+import usePost from "../../services/usePost";
 
 
-
-
-
-export default function Article({ story }) {
+export default function Article() {
+  const [shouldAnimate, setAnimation] = useState(false);
+  const [heart, setHearth] = useState("");
+  const [tweeter, setTweeter] = useState("");
+  const [beer, setBeer] = useState("");
   
- 
+  const { articleId } = useParams();
+  // console.log(posts.items);
 
-  /* Code for the envelope animation */
+  // const post = posts.items.find((art) => art.sys.id == articleId);
+   const post = usePost(articleId);
+
+  /* Code for the mail envelope animation */
+
+  if (!post) return null;
 
   const mailIconStyle = {
     display: "flex",
   };
+
   
-  const [shouldAnimate, setAnimation] = useState(false);
 
   const {
     titel: title,
     descriptionShort: descshort,
     author2: author2,
     rating: Rating,
-  } = story.fields;
+  } = post.fields;
 
   /* --------------------------------   */
 
-
-
-  const descLong = documentToReactComponents(story.fields.descriptionLong);
-  const authors = story.fields;
+  const descLong = documentToReactComponents(post.fields.descriptionLong);
+  const authors = post.fields;
 
   //console.log(authors.author);
 
-  const authorName=(x)=>{
+  const authorName = (x) => {
     console.log(x);
-    let allNames="";
+    let allNames = "";
 
-     x.author.map( (authorObj) => {
+    x.author.map((authorObj) => {
+      if (allNames == "") {
+        allNames += authorObj.fields.name;
+      } else {
+        allNames += ", " + authorObj.fields.name;
+      }
+    });
 
-    if ( allNames == "" )
-      {allNames+= authorObj.fields.name}
-    else
-    {allNames+= ", "+authorObj.fields.name }} );
+    return allNames;
+  };
 
-  return allNames;
-  }
+  const allAuthors = authorName(authors);
 
-  const allAuthors= authorName(authors);
+  const image = post.fields.image.fields.file.url;
 
-
-  const image = story.fields.image.fields.file.url;
-
-  const [heart, setHearth] = useState("");
-  const [tweeter, setTweeter] = useState("");
-  const [beer, setBeer] = useState("");
 
 
   const heartToggle = () => {
-    if(heart=="")
-    setHearth("heart");
-    else
-    setHearth("")    
+    if (heart == "") setHearth("heart");
+    else setHearth("");
   };
 
   const today = new Date();
-  const startDate=new Date(story.fields.date);
+  const startDate = new Date(post.fields.date);
 
-/*   const diff=today - new Date(story.fields.date);
+  /*   const diff=today - new Date(post.fields.date);
   console.log(today);
-  console.log(new Date(story.fields.date));
+  console.log(new Date(post.fields.date));
   console.log(diff); */
 
-
   const tweeterToggle = () => {
-    if(tweeter=="")
-    setTweeter("tweeter");
-    else
-    setTweeter("")    
+    if (tweeter == "") setTweeter("tweeter");
+    else setTweeter("");
   };
 
   const beerToggle = () => {
-    if(beer=="")
-    setBeer("beer");
-    else
-    setBeer("")    
+    if (beer == "") setBeer("beer");
+    else setBeer("");
   };
- 
 
   return (
     <div class="bigCard">
       <Card class="card" style={{ width: "48rem" }}>
-        <Card.Title ><h1>{title}</h1><h3>{
-          <TimeAgo date={startDate}  />} ...</h3>
-        
+        <Card.Title>
+          <h1>{title}</h1>
+          <h3>{<TimeAgo date={startDate} />} ...</h3>
         </Card.Title>
         <Card.Img variant="top" src={image} />
         <Card.Body>
           <Card.Text>{descLong} </Card.Text>
-          
-         <div className="video">
-          {Parser(story.fields.video)} 
-        </div>
-          
-          
+
+          <div className="video">{Parser(post.fields.video)}</div>
         </Card.Body>
 
         <div id="container2">
-          <span id="author">By : </span> <span>&nbsp;</span>{allAuthors}
+          <span id="author">By : </span> <span>&nbsp;</span>
+          {allAuthors}
         </div>
         <div id="container3">
           <div id="Rating">
@@ -132,7 +125,7 @@ export default function Article({ story }) {
           <div class="icons">
             <h3 className={beer} onClick={beerToggle}>
               {" "}
-              <FaBeer   />{" "}
+              <FaBeer />{" "}
             </h3>
 
             <h3 className={heart} onClick={heartToggle}>
@@ -160,7 +153,6 @@ export default function Article({ story }) {
             />
           </div>
         </div>
-   
       </Card>
     </div>
   );
