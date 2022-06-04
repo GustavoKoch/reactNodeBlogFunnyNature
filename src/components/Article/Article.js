@@ -17,7 +17,7 @@ export default function Article() {
   const [heart, setHearth] = useState("");
   const [tweeter, setTweeter] = useState("");
   const [beer, setBeer] = useState("");
-  
+
   const { articleId } = useParams();
   // console.log(posts.items);
 
