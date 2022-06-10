@@ -3,7 +3,14 @@ import "./Pagination.css";
 
 // import PageItem from 'react-bootstrap/PageItem'
 
-const BlogPagination = ({ onNextPage, onPrevPage, total, limit, skip }) => {
+const BlogPagination = ({
+  onNextPage,
+  onPrevPage,
+  onPage,
+  total,
+  limit,
+  skip,
+}) => {
   const numberOfPages = Math.floor(total / limit);
 
   const currentPage = skip / limit + 1;
@@ -21,7 +28,7 @@ const BlogPagination = ({ onNextPage, onPrevPage, total, limit, skip }) => {
           return (
             <Pagination.Item
               active={currentPage === page + 1 ? true : false}
-              onNextkey={page + 1}
+              onClick={() => onPage(page + 1)}
             >
               {page + 1}
             </Pagination.Item>
@@ -43,7 +50,7 @@ const BlogPagination = ({ onNextPage, onPrevPage, total, limit, skip }) => {
       <Pagination.Ellipsis />
       <Pagination.Item>{20}</Pagination.Item> */}
         <Pagination.Next onClick={onNextPage} />
-        {/* <Pagination.Last /> */}
+        {}
       </Pagination>
     </div>
   );
