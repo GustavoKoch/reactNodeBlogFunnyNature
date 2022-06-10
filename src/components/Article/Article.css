@@ -1,6 +1,6 @@
 .bigCard{
     display: flex;
-    height: auto;
+    height: 100%;
     margin: auto 10px;    
     justify-content: center;  
 }

@@ -3,31 +3,26 @@ import "./Home.css";
 import "../NavBar/NavBar.css";
 import "../BlogPosts/BlogPosts.css";
 import NavBar from "../NavBar/NavBar";
-import client from "../../contentful/client";
 import BlogPosts from "../BlogPosts/BlogPosts";
-import Article from "../Article/Article";
 import usePosts from "../../services/usePosts";
 
 function Home() {
+  const [skip, setSkip] = useState(0);
+  const [word, setWord] = useState();
+  const [fieldToSearch, setfieldToSearch] = useState();
+
+  const setSearch = (fieldToSearch, newWord) => {
+    setWord(newWord);
+    setfieldToSearch(fieldToSearch);
+  };
+
+/*  console.log(word); */
   
-  const [story, setStory] = useState();
-
-  // const [tags, setTag] = useState("story");
-  const [hitsPage, setHitsPage] = useState("50");
-  const [skip, setSkip] = useState(0)
-
-  const posts = usePosts(skip);
-
-  const searchWord = (word) => {};
+  const posts = usePosts(skip, word, fieldToSearch);
 
   const numOfResults = (num) => {
     /*   setHitsPage(num); */
   };
-
-  /*   const changePage = (num) => {
-    if (num + page < 1) return;
-    setPage(num + page);
-  }; */
 
   /*  useEffect(() => {
   // client.getEntry("6JskwXzBBLXONlsAUGspWg").then(entry => console.log(entry))
@@ -35,19 +30,14 @@ function Home() {
 
  }, []) */
 
-  /*  useEffect(() => {
-
-
- }, []) */
-
   if (!posts) return null;
 
-  console.log(posts.items);
-  console.log(posts.items[1].sys.id);
+  /*   console.log(posts.items);
+  console.log(posts.items[1].sys.id); */
 
   return (
     <div className="Home">
-      <NavBar />
+      <NavBar searchFunction={(fieldToSearch, newWord) => setSearch(fieldToSearch, newWord)} />
       {posts.items.map((article, index) => (
         <BlogPosts
           key={index}

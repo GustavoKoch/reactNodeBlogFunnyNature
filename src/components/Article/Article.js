@@ -10,6 +10,7 @@ import TimeAgo from "react-timeago";
 import Parser from "html-react-parser";
 import { useParams } from "react-router-dom";
 import usePost from "../../services/usePost";
+import NavBar from "../NavBar/NavBar";
 
 
 export default function Article() {
@@ -17,6 +18,15 @@ export default function Article() {
   const [heart, setHearth] = useState("");
   const [tweeter, setTweeter] = useState("");
   const [beer, setBeer] = useState("");
+
+  const [skip, setSkip] = useState(0);
+  const [word, setWord] = useState();
+  const [fieldToSearch, setfieldToSearch] = useState();
+
+  const setSearch = (fieldToSearch, newWord) => {
+    setWord(newWord);
+    setfieldToSearch(fieldToSearch);
+  };
 
   const { articleId } = useParams();
   // console.log(posts.items);
@@ -93,7 +103,10 @@ export default function Article() {
   };
 
   return (
+    <>
+    <NavBar searchFunction={(fieldToSearch, newWord) => setSearch(fieldToSearch, newWord)} />
     <div class="bigCard">
+     
       <Card class="card" style={{ width: "48rem" }}>
         <Card.Title>
           <h1>{title}</h1>
@@ -155,5 +168,6 @@ export default function Article() {
         </div>
       </Card>
     </div>
+    </>
   );
 }
