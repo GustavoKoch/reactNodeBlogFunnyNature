@@ -5,6 +5,8 @@ import "../BlogPosts/BlogPosts.css";
 import NavBar from "../NavBar/NavBar";
 import BlogPosts from "../BlogPosts/BlogPosts";
 import usePosts from "../../services/usePosts";
+import usePostsByTags from "../../services/usePostsByTags";
+import usePostsByAuthor from "../../services/usePostsByAuthor";
 
 function Home() {
   const [skip, setSkip] = useState(0);
@@ -18,7 +20,11 @@ function Home() {
 
 /*  console.log(word); */
   
-  const posts = usePosts(skip, word, fieldToSearch);
+  const posts = usePosts(skip, word, fieldToSearch); 
+  const postsByTags = usePostsByTags("toxic");
+  const postsByAuthor = usePostsByAuthor("4PbKrwJt0JWYiUeCA2DXBa");
+
+  console.log(postsByAuthor);
 
   const numOfResults = (num) => {
     /*   setHitsPage(num); */
@@ -51,16 +57,7 @@ function Home() {
         />
       ))}
 
-      {/* <h1>{firstStory.fields.titel}</h1>
-      {documentToReactComponents(firstStory.fields.descriptionLong)} */}
-      {/*       {news &&
-          news.hits
-            .filter((story) => story.url !== null)
-            .map((story, index) => (
-              <StoryCard key={index} story={story} storyNum={index} />
-            ))}  */}
 
-      {/*  {<Article story={firstStory}/> } */}
     </div>
   );
 }

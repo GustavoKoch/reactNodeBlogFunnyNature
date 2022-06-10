@@ -8,6 +8,7 @@ import {
   Col,
 } from "react-bootstrap";
 import { useState } from "react";
+import { NavLink } from "react-router-dom";
 
 const NavBar = ({ searchFunction }) => {
   const [input, setInput] = useState("");
@@ -24,13 +25,14 @@ const NavBar = ({ searchFunction }) => {
     setDropdown("Search By");
   };
 
+
   return (
     <div>
       <h1 className="blog-name">Funny Nature Blog</h1>
       <nav className="navbar">
         <ul>
           <li>
-            <a href="#">Home</a>
+            <NavLink to={`/`}>Home</NavLink>
           </li>
           <li>
             <a href="#">Cute</a>
@@ -80,7 +82,6 @@ const NavBar = ({ searchFunction }) => {
                     placeholder="Searchfied"
                     onChange={(e) => setInput(e.target.value)}
                     value={input}
-                   
                   />
                 </Form.Group>
               </Form>

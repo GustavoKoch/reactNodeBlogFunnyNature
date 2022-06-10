@@ -9,6 +9,8 @@ import React, { useState } from "react";
 import TimeAgo from "react-timeago";
 import Parser from "html-react-parser";
 import { useParams } from "react-router-dom";
+
+/* Importing usePost for fetching the data  */
 import usePost from "../../services/usePost";
 import NavBar from "../NavBar/NavBar";
 
@@ -28,22 +30,18 @@ export default function Article() {
     setfieldToSearch(fieldToSearch);
   };
 
+  /* Reading the Id from url and passing it as a parameter to fetch only this article */
   const { articleId } = useParams();
-  // console.log(posts.items);
-
-  // const post = posts.items.find((art) => art.sys.id == articleId);
-   const post = usePost(articleId);
+  const post = usePost(articleId);
 
   /* Code for the mail envelope animation */
-
   if (!post) return null;
-
   const mailIconStyle = {
     display: "flex",
   };
 
   
-
+ /* Deconstructing what I get from contentful */
   const {
     titel: title,
     descriptionShort: descshort,
@@ -56,8 +54,8 @@ export default function Article() {
   const descLong = documentToReactComponents(post.fields.descriptionLong);
   const authors = post.fields;
 
-  //console.log(authors.author);
-
+ 
+/* Function for listing autors in this card */
   const authorName = (x) => {
     console.log(x);
     let allNames = "";
@@ -69,14 +67,11 @@ export default function Article() {
         allNames += ", " + authorObj.fields.name;
       }
     });
-
     return allNames;
   };
 
   const allAuthors = authorName(authors);
-
   const image = post.fields.image.fields.file.url;
-
 
 
   const heartToggle = () => {
@@ -87,10 +82,7 @@ export default function Article() {
   const today = new Date();
   const startDate = new Date(post.fields.date);
 
-  /*   const diff=today - new Date(post.fields.date);
-  console.log(today);
-  console.log(new Date(post.fields.date));
-  console.log(diff); */
+
 
   const tweeterToggle = () => {
     if (tweeter == "") setTweeter("tweeter");
