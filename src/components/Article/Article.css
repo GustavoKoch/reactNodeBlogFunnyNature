@@ -20,10 +20,10 @@
     padding-left: 10px;
 }
 
-.card-title h3 {
+.card-title h4 {
     color: rgb(168, 166, 166);
     font-style: italic;
-    padding-top: 10px;
+    padding-top: 8px;
     margin-right: 20px;
     ;
 }
@@ -61,6 +61,11 @@
 
 #Rating {
     display: flex;
+}
+
+
+/* #Rating {
+    display: flex;
     height: 30px;
     width: 150px;
     margin-right: 200px;
@@ -69,7 +74,7 @@
     align-items: center;
     align-content: center;
     justify-content: space-around;
-}
+} */
 
 #Rating span {
     text-align: center;
@@ -79,11 +84,9 @@
 }
 
 .icons {
-    margin-right: 0px;
     display: flex;
-    justify-content: space-between;
-    width: 250px;
-    ;
+    justify-content: space-around;
+    width: 150px;
 }
 
 #mail {
@@ -92,7 +95,6 @@
     justify-content: end;
     width: 220px;
     transform: scale(0.2, 0.25);
-    margin: 0;
     padding-bottom: 50px;
 }
 
@@ -112,8 +114,7 @@
 }
 
 #ratNum {
-    padding-top: 5px;
-    ;
+    padding-left: 5px;
 }
 
 
@@ -139,6 +140,21 @@
         font-size: .9em;
     }
     .icons {
+        display: flex;
+        justify-content: space-between;
         width: 10px;
+        padding-left: 20px;
+    }
+    .card-title {
+        font-size: 1em;
+    }
+    .card h1 {
+        font-size: 1.1em;
+    }
+    .card h4 {
+        font-size: .8em;
+    }
+    .video {
+        max-width: 480px
     }
 }

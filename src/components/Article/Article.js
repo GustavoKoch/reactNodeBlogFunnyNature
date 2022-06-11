@@ -23,7 +23,6 @@ export default function Article() {
   const [word, setWord] = useState();
   const [fieldToSearch, setfieldToSearch] = useState();
 
-
   const setSearch = (fieldToSearch, newWord) => {
     setWord(newWord);
     setfieldToSearch(fieldToSearch);
@@ -40,7 +39,6 @@ export default function Article() {
     display: "flex",
   };
 
-
   const {
     titel: title,
     descriptionShort: descshort,
@@ -53,8 +51,7 @@ export default function Article() {
   const descLong = documentToReactComponents(post.fields.descriptionLong);
   const authors = post.fields;
 
- 
-/* Function for listing autors in this card */
+  /* Function for listing autors in this card */
   const authorName = (x) => {
     // console.log(x);
     let allNames = "";
@@ -72,7 +69,6 @@ export default function Article() {
   const allAuthors = authorName(authors);
   const image = post.fields.image.fields.file.url;
 
-
   const heartToggle = () => {
     if (heart == "") setHearth("heart");
     else setHearth("");
@@ -80,8 +76,6 @@ export default function Article() {
 
   const today = new Date();
   const startDate = new Date(post.fields.date);
-
-
 
   const tweeterToggle = () => {
     if (tweeter == "") setTweeter("tweeter");
@@ -95,70 +89,73 @@ export default function Article() {
 
   return (
     <>
-    <NavBar searchFunction={(fieldToSearch, newWord) => setSearch(fieldToSearch, newWord)} />
-    <div class="bigCard">
-     
-      <Card class="card" style={{ width: "48rem" }}>
-        <Card.Title>
-          <h1>{title}</h1>
-          <h3>{<TimeAgo date={startDate} />} ...</h3>
-        </Card.Title>
-        <Card.Img variant="top" src={image} />
-        <Card.Body>
-          <Card.Text>{descLong} </Card.Text>
+      <NavBar
+        searchFunction={(fieldToSearch, newWord) =>
+          setSearch(fieldToSearch, newWord)
+        }
+      />
+      <div class="bigCard">
+        <Card class="card" style={{ width: "48rem" }}>
+          <Card.Title>
+            <h1>{title}</h1>
+            <h4>{<TimeAgo date={startDate} />} ...</h4>
+          </Card.Title>
+          <Card.Img variant="top" src={image} />
+          <Card.Body>
+            <Card.Text>{descLong} </Card.Text>
 
-          <div className="video">{Parser(post.fields.video)}</div>
-        </Card.Body>
+            <div className="video">{Parser(post.fields.video)}</div>
+          </Card.Body>
 
-        <div id="container2">
-          <span id="author">By : </span> <span>&nbsp;</span>
-          {allAuthors}
-        </div>
-        <div id="container3">
-          <div id="Rating">
-            <ReactStars
-              count={5}
-              onChange={null}
-              edit={false}
-              size={24}
-              color2={"#ffd700"}
-              value={Rating}
-            />
-            <span id="ratNum">({Rating})</span>
+          <div id="container2">
+            <span id="author">By : </span> <span>&nbsp;</span>
+            {allAuthors}
           </div>
-          <div class="icons">
-            <h3 className={beer} onClick={beerToggle}>
-              {" "}
-              <FaBeer />{" "}
-            </h3>
+          <div id="container3">
+            <div id="Rating">
+              <ReactStars
+                count={5}
+                onChange={null}
+                edit={false}
+                size={24}
+                color2={"#ffd700"}
+                value={Rating}
+              />
+              <span id="ratNum">({Rating})</span>
+            </div>
+            <div class="icons">
+              <h3 className={beer} onClick={beerToggle}>
+                {" "}
+                <FaBeer />{" "}
+              </h3>
 
-            <h3 className={heart} onClick={heartToggle}>
-              {" "}
-              <FaHeart />
-            </h3>
-            <h3 className={tweeter} onClick={tweeterToggle}>
-              {" "}
-              <FaTwitter />{" "}
-            </h3>
+              <h3 className={heart} onClick={heartToggle}>
+                {" "}
+                <FaHeart />
+              </h3>
+              <h3 className={tweeter} onClick={tweeterToggle}>
+                {" "}
+                <FaTwitter />{" "}
+              </h3>
+            </div>
+            <div id="mail">
+              <MailIcon
+                style={mailIconStyle}
+                mailBackFoldColor="#2874A6"
+                mailTopFoldColor="#2E86C1"
+                mailLeftFoldColor="#3498DB"
+                mailRightFoldColor="#5DADE2"
+                letterBackgroundColor="#FFFFFF"
+                letterBorderColor="#1ABC9C"
+                letterTextColor="#1ABC9C"
+                shouldAnimateOpen={shouldAnimate}
+                shouldAnimateDown={shouldAnimate}
+                shouldAnimateOnHover
+              />
+            </div>
           </div>
-          <div id="mail">
-            <MailIcon
-              style={mailIconStyle}
-              mailBackFoldColor="#2874A6"
-              mailTopFoldColor="#2E86C1"
-              mailLeftFoldColor="#3498DB"
-              mailRightFoldColor="#5DADE2"
-              letterBackgroundColor="#FFFFFF"
-              letterBorderColor="#1ABC9C"
-              letterTextColor="#1ABC9C"
-              shouldAnimateOpen={shouldAnimate}
-              shouldAnimateDown={shouldAnimate}
-              shouldAnimateOnHover
-            />
-          </div>
-        </div>
-      </Card>
-    </div>
+        </Card>
+      </div>
     </>
   );
 }
