@@ -26,15 +26,7 @@ const usePosts = (skip, limit, word, fieldToSearch) => {
 
   if (!posts) return null;
 
-  /* console.log(posts); */
 
-/*     client.getEntries({ content_type: "blog", limit, skip }).then((data) => {
-      // console.log(data);
-      setPosts(data);
-    });
-    
-   
-  }, [limit, skip]); */
 
 
   return posts;

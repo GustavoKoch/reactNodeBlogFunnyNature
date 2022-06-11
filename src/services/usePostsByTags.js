@@ -14,7 +14,7 @@ const usePostsByTags = (skip, limit, tags) => {
       .then((entry) => setPosts(entry));
   }, [limit, skip,tags]);
 
-  console.log(skip);
+ /*  console.log(skip); */
 
   return posts;
 };

@@ -8,19 +8,33 @@ import {
   Col,
 } from "react-bootstrap";
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 const NavBar = ({ searchFunction, onResetSearch }) => {
   const [input, setInput] = useState("");
 
   const [dropdown, setDropdown] = useState("Search By");
+
+  const navigate=useNavigate();
+
   const handleSelect = (e) => {
     setDropdown(e);
   };
 
+  const onResetSearch1 = () => {
+    setInput("");
+    setDropdown("Search By");
+    onResetSearch();
+
+  }
+  
+
   const submit = (e) => {
     e.preventDefault();
+    onResetSearch();
     searchFunction(dropdown, input);
+    
+    navigate("/");
 /*     setInput("");
     setDropdown("Search By"); */
   };
@@ -33,32 +47,32 @@ const NavBar = ({ searchFunction, onResetSearch }) => {
       <nav className="navbar">
         <ul>
           <li>
-            <NavLink className="bold" to={`/`} onClick={onResetSearch}>
+            <NavLink className="bold" to={`/`} onClick={onResetSearch1}>
               Home
             </NavLink>
           </li>
           <li>
-            <NavLink to={`/byTags/cute`} onClick={onResetSearch}>
+            <NavLink to={`/byTags/cute`} onClick={onResetSearch1}>
               Cute
             </NavLink>
           </li>
           <li>
-            <NavLink to={`/byTags/bill`} onClick={onResetSearch}>
+            <NavLink to={`/byTags/bill`} onClick={onResetSearch1}>
               Beautiful
             </NavLink>
           </li>
           <li>
-            <NavLink to={`/byTags/ugly`} onClick={onResetSearch}>
+            <NavLink to={`/byTags/ugly`} onClick={onResetSearch1}>
               Ugly
             </NavLink>
           </li>
           <li>
-            <NavLink to={`/byTags/scary`} onClick={onResetSearch}>
+            <NavLink to={`/byTags/scary`} onClick={onResetSearch1}>
               Scary
             </NavLink>
           </li>
           <li>
-            <NavLink to={`/byTags/toxic`} onClick={onResetSearch}>
+            <NavLink to={`/byTags/toxic`} onClick={onResetSearch1}>
               Toxic
             </NavLink>
           </li>
