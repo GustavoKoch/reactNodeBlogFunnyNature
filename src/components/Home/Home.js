@@ -4,13 +4,9 @@ import "./Home.css";
 import "../NavBar/NavBar.css";
 import "../Footer/Footer.css";
 import NavBar from "../NavBar/NavBar";
-
 import Footer from "../Footer/Footer";
-import client from "../../contentful/client";
-
 import BlogPosts from "../BlogPosts/BlogPosts";
 import usePosts from "../../services/usePosts";
-
 import usePostsByTags from "../../services/usePostsByTags";
 import usePostsByAuthor from "../../services/usePostsByAuthor";
 import { useParams } from "react-router-dom";
@@ -29,9 +25,11 @@ function Home() {
 
   const limit = 6;
 
+/* For reseting through onlcik Home navBar */
   const handleResetSearch = () => {
     setWord();
     setfieldToSearch();
+    setSkip(0);
   }
 
 
@@ -44,18 +42,37 @@ function Home() {
     /* Reading the AuthorId or the tag from url and passing it as a parameter to fetch only articles for the specified author or tag */
     const {authorId } = useParams();
     const {tag} = useParams();
-    const postsByAuthor = usePostsByAuthor(authorId)
-    const postsByTags = usePostsByTags(tag);
-/*     
-    console.log (authorId);
-    console.log (tag);
-    console.log (postsByAuthor);
-    console.log (postsByTags); */
+    const postsByAuthor = usePostsByAuthor(skip,limit,authorId)
+    const postsByTags = usePostsByTags(skip,limit,tag);
 
 
-  if (authorId){posts = postsByAuthor;};
-  if (tag){posts = postsByTags;};
+    let nameAuthor;
+    let adjSuper;
+  if (authorId){posts = postsByAuthor;
 
+    const allAuthors = [
+      { Name: "Mike", id: "7wTo5HuJVICF9jyMYNXpI0" },
+      { Name: "André", id: "9HEY3sb5GMK4fCFdzT21P" },
+      { Name: "Barbara", id: "4LAGm4ke1kU6ZwjfwPyIDc" },
+      { Name: "Gustavo", id: "4PbKrwJt0JWYiUeCA2DXBa" },
+    ];
+
+      nameAuthor = allAuthors.find(element => element.id ==authorId).Name;
+      /* console.log(nameAuthor); */
+  
+  };
+  if (tag){posts = postsByTags;
+  
+    const superlatives = [
+      { adj: "cutest", id: "cute" },
+      { adj: "most beatiful", id: "bill" },
+      { adj: "ugliest", id: "ugly" },
+      { adj: "scariest", id: "scary" },
+      { adj: "most toxic", id: "toxic" }
+    ];
+    adjSuper = superlatives.find(element => element.id ==tag).adj;
+      console.log(adjSuper);
+  };
   if (!posts) return null;
 
   console.log(posts);
@@ -85,10 +102,14 @@ function Home() {
   };
 
 
+
+
+
   return (
     <div className="Home">
       <NavBar searchFunction={(fieldToSearch, newWord) => setSearch(fieldToSearch, newWord)} onResetSearch={handleResetSearch} />
-      
+      {nameAuthor&&<h2 className="Subtitle">Here the precious animals from <span className="authorName">{nameAuthor}</span></h2>}
+      {tag&&<h2 className="Subtitle">These are the <span>{adjSuper}</span> animals of nature</h2>}
       {posts.items.map((article, index) => (
         <BlogPosts
           key={index}

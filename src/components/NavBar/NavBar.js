@@ -28,31 +28,31 @@ const NavBar = ({ searchFunction, onResetSearch }) => {
 
   return (
     <div>
-      <h1 className="blog-name">Funny Nature Blog</h1>
+      <h1 className="blog-name">🌴Funny <span className="Nature">Nature</span> Blog</h1>
       <nav className="navbar">
         <ul>
           <li>
 
-            <NavLink to={`/`} onClick={onResetSearch}>Home</NavLink>
+            <NavLink className="bold" to={`/`} onClick={onResetSearch}>Home</NavLink>
 
           </li>
           <li>
-            <NavLink to={`/byTags/cute`}>Cute</NavLink>
+            <NavLink to={`/byTags/cute`} onClick={onResetSearch}>Cute</NavLink>
           </li>
           <li>
-            <NavLink to={`/byTags/bill`}>Beatiful</NavLink>
+            <NavLink to={`/byTags/bill`} onClick={onResetSearch}>Beautiful</NavLink>
           </li>
           <li>
-            <NavLink to={`/byTags/ugly`}>Ugly</NavLink>
+            <NavLink to={`/byTags/ugly`} onClick={onResetSearch}>Ugly</NavLink>
           </li>
           <li>
-            <NavLink to={`/byTags/scary`}>Scary</NavLink>
+            <NavLink to={`/byTags/scary`} onClick={onResetSearch}>Scary</NavLink>
           </li>
           <li>
-            <NavLink to={`/byTags/toxic`}>Toxic</NavLink>
+            <NavLink to={`/byTags/toxic`} onClick={onResetSearch}>Toxic</NavLink>
           </li>
           <li>
-            <NavLink to={`/Authors`}>Authors</NavLink>
+            <NavLink className="bold" to={`/Authors`}>Authors</NavLink>
 
           </li>
         </ul>

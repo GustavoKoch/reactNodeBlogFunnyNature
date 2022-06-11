@@ -1,0 +1,23 @@
+.Subtitle{
+    margin-bottom: 30px;
+}
+
+.Subtitle span{
+    color:rgb(232, 41, 232);
+    font-style: italic;
+
+}
+
+.Subtitle span.authorName{
+    color:rgb(41, 210, 232);
+}
+
+.bold{
+    font-weight: bold;
+    color: rgb(37, 37, 37);
+}
+
+.Nature{
+    color:green;
+    font-style: italic;
+}

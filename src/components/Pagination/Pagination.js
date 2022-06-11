@@ -11,7 +11,8 @@ const BlogPagination = ({
   limit,
   skip,
 }) => {
-  const numberOfPages = Math.floor(total / limit);
+  const numberOfPages = Math.ceil(total / limit);
+  console.log (numberOfPages);
 
   const currentPage = skip / limit + 1;
 
@@ -24,9 +25,10 @@ const BlogPagination = ({
       <Pagination>
         {/* <Pagination.First /> */}
         <Pagination.Prev onClick={onPrevPage} />
-        {[...Array(numberOfPages).keys()].map((page) => {
+        {[...Array(numberOfPages).keys()].map((page, index) => {
           return (
             <Pagination.Item
+              key={index}
               active={currentPage === page + 1 ? true : false}
               onClick={() => onPage(page + 1)}
             >
