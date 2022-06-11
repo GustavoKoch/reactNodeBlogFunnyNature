@@ -1,7 +1,6 @@
 import "./Article.css";
 import { Card } from "react-bootstrap";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
-import "bootstrap/dist/css/bootstrap.min.css";
 import ReactStars from "react-stars";
 import { FaBeer, FaTwitter, FaHeart } from "react-icons/fa";
 import { MailIcon } from "react-mail-icon";
@@ -10,7 +9,6 @@ import TimeAgo from "react-timeago";
 import Parser from "html-react-parser";
 import { useParams } from "react-router-dom";
 import usePost from "../../services/usePost";
-
 
 export default function Article() {
   const [shouldAnimate, setAnimation] = useState(false);
@@ -22,7 +20,7 @@ export default function Article() {
   // console.log(posts.items);
 
   // const post = posts.items.find((art) => art.sys.id == articleId);
-   const post = usePost(articleId);
+  const post = usePost(articleId);
 
   /* Code for the mail envelope animation */
 
@@ -31,8 +29,6 @@ export default function Article() {
   const mailIconStyle = {
     display: "flex",
   };
-
-  
 
   const {
     titel: title,
@@ -49,7 +45,7 @@ export default function Article() {
   //console.log(authors.author);
 
   const authorName = (x) => {
-    console.log(x);
+    // console.log(x);
     let allNames = "";
 
     x.author.map((authorObj) => {
@@ -66,8 +62,6 @@ export default function Article() {
   const allAuthors = authorName(authors);
 
   const image = post.fields.image.fields.file.url;
-
-
 
   const heartToggle = () => {
     if (heart == "") setHearth("heart");

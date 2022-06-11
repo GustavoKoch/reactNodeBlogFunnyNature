@@ -6,10 +6,10 @@ const usePost = (id) => {
   const [post, setPost] = useState();
 
   useEffect(() => {
-     client.getEntry(id).then(entry => setPost(entry))
+    client.getEntry(id).then((entry) => setPost(entry));
   }, [id]);
 
-  console.log(post);
+  // console.log(post);
 
   return post;
 };
