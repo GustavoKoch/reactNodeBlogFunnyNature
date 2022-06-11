@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
+import "../BlogPosts/BlogPosts.css";
 import "./Home.css";
 import "../NavBar/NavBar.css";
 import "../Footer/Footer.css";
-import "../BlogPosts/BlogPosts.css";
 import NavBar from "../NavBar/NavBar";
 import Footer from "../Footer/Footer";
 import client from "../../contentful/client";
