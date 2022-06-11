@@ -3,6 +3,7 @@ import "../BlogPosts/BlogPosts.css";
 import "./Home.css";
 import "../NavBar/NavBar.css";
 import "../Footer/Footer.css";
+import "../Authors/Authors.css";
 import NavBar from "../NavBar/NavBar";
 import Footer from "../Footer/Footer";
 import BlogPosts from "../BlogPosts/BlogPosts";
@@ -17,7 +18,6 @@ function Home() {
   const [word, setWord] = useState();
   const [fieldToSearch, setfieldToSearch] = useState();
 
- 
   const setSearch = (fieldToSearch, newWord) => {
     setWord(newWord);
     setfieldToSearch(fieldToSearch);
@@ -29,14 +29,15 @@ function Home() {
   const handleResetSearch = () => {
     setWord();
     setfieldToSearch();
+
     setSkip(0);
   }
 
 
-/*  console.log(word); */
-  
-  let posts = usePosts(skip,limit, word, fieldToSearch); 
-  
+
+  /*  console.log(word); */
+
+  let posts = usePosts(skip, limit, word, fieldToSearch);
 
 
     /* Reading the AuthorId or the tag from url and passing it as a parameter to fetch only articles for the specified author or tag */
@@ -49,6 +50,7 @@ function Home() {
     let nameAuthor;
     let adjSuper;
   if (authorId){posts = postsByAuthor;
+
 
     const allAuthors = [
       { Name: "Mike", id: "7wTo5HuJVICF9jyMYNXpI0" },
@@ -76,10 +78,8 @@ function Home() {
   if (!posts) return null;
 
   console.log(posts);
-  
-/*   const posts = usePosts(skip, limit); */
 
-
+  /*   const posts = usePosts(skip, limit); */
 
   const handlePrevPage = () => {
     const prevSet = skip - limit;
@@ -105,11 +105,13 @@ function Home() {
 
 
 
+
   return (
     <div className="Home">
       <NavBar searchFunction={(fieldToSearch, newWord) => setSearch(fieldToSearch, newWord)} onResetSearch={handleResetSearch} />
       {nameAuthor&&<h2 className="Subtitle">Here the precious animals from <span className="authorName">{nameAuthor}</span></h2>}
       {tag&&<h2 className="Subtitle">These are the <span>{adjSuper}</span> animals of nature</h2>}
+
       {posts.items.map((article, index) => (
         <BlogPosts
           key={index}
@@ -132,7 +134,6 @@ function Home() {
         skip={skip}
       />
       <Footer />
-
     </div>
   );
 }
