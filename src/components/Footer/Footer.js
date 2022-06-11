@@ -9,17 +9,17 @@ const Footer = () => {
         <div className="footer-icons">
           <li>
             <a href="#">
-              <img src={instagram} alt="Instagram Icon" width="25" />
+              <img className="instagram" src={instagram} alt="Instagram Icon" />
             </a>
           </li>
           <li>
             <a href="#">
-              <img src={facebook} alt="Facebook Icon" width="25" />
+              <img className="facebook" src={facebook} alt="Facebook Icon" />
             </a>
           </li>
           <li>
             <a href="#">
-              <img src={rss} alt="RSS Icon" width="25" />
+              <img className="rss" src={rss} alt="RSS Icon" />
             </a>
           </li>
         </div>
