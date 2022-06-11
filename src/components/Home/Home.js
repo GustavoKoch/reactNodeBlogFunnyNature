@@ -24,7 +24,8 @@ function Home() {
 
   const handlePrevPage = () => {
     const prevSet = skip - limit;
-    if (prevSet >= posts.total) return;
+    const currentPage = skip / limit;
+    if (0 >= currentPage) return;
     setSkip(prevSet);
   };
 
@@ -34,6 +35,11 @@ function Home() {
     const nextSet = skip + limit;
     if (nextSet >= posts.total) return;
     setSkip(nextSet);
+  };
+
+  const handleOnPage = (pageNumber) => {
+    const skipSet = (pageNumber - 1) * limit;
+    setSkip(skipSet);
   };
 
   return (
@@ -54,6 +60,7 @@ function Home() {
       <BlogPagination
         onPrevPage={handlePrevPage}
         onNextPage={handleNextPage}
+        onPage={handleOnPage}
         total={posts.total}
         limit={limit}
         skip={skip}
