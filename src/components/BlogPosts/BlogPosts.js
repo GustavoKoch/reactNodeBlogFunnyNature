@@ -13,20 +13,20 @@ const BlogPosts = ({
 }) => {
   return (
     <Card className="blog-post-card">
-      <NavLink className="link link-nav" to={`/${articleId}`}>
-        <Card.Body className="blog-post-body">
-          <Card.Title className="blog-post-title">{title}</Card.Title>
-          <Card.Img variant="top" src={image} />
-          <Card.Text className="blog-post-description">
-            {descriptionShort}
-          </Card.Text>
+      <Card.Body className="blog-post-body">
+        <Card.Title className="blog-post-title">{title}</Card.Title>
+        <Card.Img variant="top" src={image} />
+        <Card.Text className="blog-post-description">
+          {descriptionShort}
+        </Card.Text>
+        <NavLink className="link link-nav" to={`/${articleId}`}>
           <Button variant="primary">See More</Button>
-          <div className="blog-post-footer">
-            <div className="blog-post-author">Written by: Gustavo</div>
-            <div className="blog-post-date">Posted: {date}</div>
-          </div>
-        </Card.Body>
-      </NavLink>
+        </NavLink>
+        <div className="blog-post-footer">
+          <div className="blog-post-author">Written by: Gustavo</div>
+          <div className="blog-post-date">Posted: {date}</div>
+        </div>
+      </Card.Body>
     </Card>
 
     // <div className="blog-post-card">
