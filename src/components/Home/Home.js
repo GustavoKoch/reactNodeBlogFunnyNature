@@ -31,11 +31,11 @@ function Home() {
     const {tag} = useParams();
     const postsByAuthor = usePostsByAuthor(authorId)
     const postsByTags = usePostsByTags(tag);
-    
+/*     
     console.log (authorId);
     console.log (tag);
-/*     console.log (postsByAuthor); */
-    console.log (postsByTags);
+    console.log (postsByAuthor);
+    console.log (postsByTags); */
 
 
   if (authorId){posts = postsByAuthor;};
