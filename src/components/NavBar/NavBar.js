@@ -15,7 +15,7 @@ const NavBar = ({ searchFunction, onResetSearch }) => {
 
   const [dropdown, setDropdown] = useState("Search By");
 
-  const navigate=useNavigate();
+  const navigate = useNavigate();
 
   const handleSelect = (e) => {
     setDropdown(e);
@@ -25,24 +25,22 @@ const NavBar = ({ searchFunction, onResetSearch }) => {
     setInput("");
     setDropdown("Search By");
     onResetSearch();
-
-  }
-  
+  };
 
   const submit = (e) => {
     e.preventDefault();
     onResetSearch();
     searchFunction(dropdown, input);
-    
+
     navigate("/");
-/*     setInput("");
+    /*     setInput("");
     setDropdown("Search By"); */
   };
 
   return (
     <div>
       <h1 className="blog-name">
-        🌴Funny <span className="Nature">Nature</span> Blog 🦎
+        🌴 Funny <span className="Nature">Nature</span> Blog 🦎
       </h1>
       <nav className="navbar">
         <ul>
@@ -97,7 +95,6 @@ const NavBar = ({ searchFunction, onResetSearch }) => {
                 <Dropdown.Item eventKey="Description">
                   Description
                 </Dropdown.Item>
-        
               </DropdownButton>
             </Col>
             <Col xs lg="6" className="mb-3 mx-0 px-0">
