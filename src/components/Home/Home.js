@@ -29,6 +29,12 @@ function Home() {
 
   const limit = 6;
 
+  const handleResetSearch = () => {
+    setWord();
+    setfieldToSearch();
+  }
+
+
 /*  console.log(word); */
   
   let posts = usePosts(skip,limit, word, fieldToSearch); 
@@ -40,11 +46,11 @@ function Home() {
     const {tag} = useParams();
     const postsByAuthor = usePostsByAuthor(authorId)
     const postsByTags = usePostsByTags(tag);
-    
+/*     
     console.log (authorId);
     console.log (tag);
-/*     console.log (postsByAuthor); */
-    console.log (postsByTags);
+    console.log (postsByAuthor);
+    console.log (postsByTags); */
 
 
   if (authorId){posts = postsByAuthor;};
@@ -81,7 +87,7 @@ function Home() {
 
   return (
     <div className="Home">
-      <NavBar searchFunction={(fieldToSearch, newWord) => setSearch(fieldToSearch, newWord)} />
+      <NavBar searchFunction={(fieldToSearch, newWord) => setSearch(fieldToSearch, newWord)} onResetSearch={handleResetSearch} />
       
       {posts.items.map((article, index) => (
         <BlogPosts
