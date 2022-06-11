@@ -4,7 +4,9 @@
     width: 20em;
 }
 
-.blog-post-body {}
+.card-text {
+    min-height: 180px!important;
+}
 
 .blog-post-title {
     padding-bottom: .4em;
@@ -26,4 +28,9 @@
 
 .blog-post-date {
     font-size: .6rem;
+}
+
+.card {
+    display: inline-block!important;
+    margin: 10px!important;
 }

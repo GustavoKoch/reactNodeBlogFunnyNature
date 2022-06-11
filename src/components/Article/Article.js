@@ -1,7 +1,6 @@
 import "./Article.css";
 import { Card } from "react-bootstrap";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
-import "bootstrap/dist/css/bootstrap.min.css";
 import ReactStars from "react-stars";
 import { FaBeer, FaTwitter, FaHeart } from "react-icons/fa";
 import { MailIcon } from "react-mail-icon";
@@ -14,7 +13,6 @@ import { useParams } from "react-router-dom";
 import usePost from "../../services/usePost";
 import NavBar from "../NavBar/NavBar";
 
-
 export default function Article() {
   const [shouldAnimate, setAnimation] = useState(false);
   const [heart, setHearth] = useState("");
@@ -25,6 +23,7 @@ export default function Article() {
   const [word, setWord] = useState();
   const [fieldToSearch, setfieldToSearch] = useState();
 
+
   const setSearch = (fieldToSearch, newWord) => {
     setWord(newWord);
     setfieldToSearch(fieldToSearch);
@@ -32,6 +31,7 @@ export default function Article() {
 
   /* Reading the Id from url and passing it as a parameter to fetch only this article */
   const { articleId } = useParams();
+
   const post = usePost(articleId);
 
   /* Code for the mail envelope animation */
@@ -40,8 +40,7 @@ export default function Article() {
     display: "flex",
   };
 
-  
- /* Deconstructing what I get from contentful */
+
   const {
     titel: title,
     descriptionShort: descshort,
@@ -57,7 +56,7 @@ export default function Article() {
  
 /* Function for listing autors in this card */
   const authorName = (x) => {
-    console.log(x);
+    // console.log(x);
     let allNames = "";
 
     x.author.map((authorObj) => {

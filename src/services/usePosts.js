@@ -2,7 +2,9 @@ import { useState, useEffect } from "react";
 
 import client from "../contentful/client";
 
-const usePosts = (skip, word, fieldToSearch) => {
+
+const usePosts = (skip, limit, word, fieldToSearch) => {
+
   const [posts, setPosts] = useState();
 
 
@@ -20,14 +22,24 @@ const usePosts = (skip, word, fieldToSearch) => {
  /*  console.log(param1, value1); */
 
   useEffect(() => {
+
          
-         client.getEntries({ content_type: "blog", limit: 6, skip: skip, [param1]:value1 }).then(data => { setPosts(data); }) 
+         client.getEntries({ content_type: "blog", limit: limit, skip: skip, [param1]:value1 }).then(data => { setPosts(data); }) 
      /*    client.getEntry("6JskwXzBBLXONlsAUGspWg").then(entry => console.log(entry)) */
-  }, [skip,param1, value1]);
+  }, [limit, skip,param1, value1]);
 
   if (!posts) return null;
 
   /* console.log(posts); */
+
+/*     client.getEntries({ content_type: "blog", limit, skip }).then((data) => {
+      // console.log(data);
+      setPosts(data);
+    });
+    
+   
+  }, [limit, skip]); */
+
 
   return posts;
 };

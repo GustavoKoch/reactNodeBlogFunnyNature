@@ -32,6 +32,7 @@ const NavBar = ({ searchFunction }) => {
       <nav className="navbar">
         <ul>
           <li>
+
             <NavLink to={`/`}>Home</NavLink>
           </li>
           <li>
@@ -51,6 +52,7 @@ const NavBar = ({ searchFunction }) => {
           </li>
           <li>
             <NavLink to={`/Authors`}>Authors</NavLink>
+
           </li>
         </ul>
 
