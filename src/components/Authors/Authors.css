@@ -1,0 +1,17 @@
+.author-card {
+    width: 400px;
+}
+
+.author-name {
+    text-decoration: none;
+}
+
+.author-name h2 {
+    text-align: center;
+    font-size: 1em;
+}
+
+.author-email {
+    font-size: .9em;
+    font-weight: bold;
+}

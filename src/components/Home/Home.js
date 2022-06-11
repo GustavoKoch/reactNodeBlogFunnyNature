@@ -3,6 +3,7 @@ import "../BlogPosts/BlogPosts.css";
 import "./Home.css";
 import "../NavBar/NavBar.css";
 import "../Footer/Footer.css";
+import "../Authors/Authors.css";
 import NavBar from "../NavBar/NavBar";
 
 import Footer from "../Footer/Footer";
@@ -21,7 +22,6 @@ function Home() {
   const [word, setWord] = useState();
   const [fieldToSearch, setfieldToSearch] = useState();
 
- 
   const setSearch = (fieldToSearch, newWord) => {
     setWord(newWord);
     setfieldToSearch(fieldToSearch);
@@ -32,37 +32,35 @@ function Home() {
   const handleResetSearch = () => {
     setWord();
     setfieldToSearch();
-  }
+  };
 
+  /*  console.log(word); */
 
-/*  console.log(word); */
-  
-  let posts = usePosts(skip,limit, word, fieldToSearch); 
-  
+  let posts = usePosts(skip, limit, word, fieldToSearch);
 
-
-    /* Reading the AuthorId or the tag from url and passing it as a parameter to fetch only articles for the specified author or tag */
-    const {authorId } = useParams();
-    const {tag} = useParams();
-    const postsByAuthor = usePostsByAuthor(authorId)
-    const postsByTags = usePostsByTags(tag);
-/*     
+  /* Reading the AuthorId or the tag from url and passing it as a parameter to fetch only articles for the specified author or tag */
+  const { authorId } = useParams();
+  const { tag } = useParams();
+  const postsByAuthor = usePostsByAuthor(authorId);
+  const postsByTags = usePostsByTags(tag);
+  /*     
     console.log (authorId);
     console.log (tag);
     console.log (postsByAuthor);
     console.log (postsByTags); */
 
-
-  if (authorId){posts = postsByAuthor;};
-  if (tag){posts = postsByTags;};
+  if (authorId) {
+    posts = postsByAuthor;
+  }
+  if (tag) {
+    posts = postsByTags;
+  }
 
   if (!posts) return null;
 
   console.log(posts);
-  
-/*   const posts = usePosts(skip, limit); */
 
-
+  /*   const posts = usePosts(skip, limit); */
 
   const handlePrevPage = () => {
     const prevSet = skip - limit;
@@ -84,11 +82,15 @@ function Home() {
     setSkip(skipSet);
   };
 
-
   return (
     <div className="Home">
-      <NavBar searchFunction={(fieldToSearch, newWord) => setSearch(fieldToSearch, newWord)} onResetSearch={handleResetSearch} />
-      
+      <NavBar
+        searchFunction={(fieldToSearch, newWord) =>
+          setSearch(fieldToSearch, newWord)
+        }
+        onResetSearch={handleResetSearch}
+      />
+
       {posts.items.map((article, index) => (
         <BlogPosts
           key={index}
@@ -111,7 +113,6 @@ function Home() {
         skip={skip}
       />
       <Footer />
-
     </div>
   );
 }
