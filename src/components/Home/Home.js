@@ -72,11 +72,11 @@ function Home() {
       { adj: "most toxic", id: "toxic" }
     ];
     adjSuper = superlatives.find(element => element.id ==tag).adj;
-      console.log(adjSuper);
+   /*    console.log(adjSuper); */
   };
   if (!posts) return null;
 
-  console.log(posts);
+  /* console.log(posts); */
 
   /*   const posts = usePosts(skip, limit); */
 
