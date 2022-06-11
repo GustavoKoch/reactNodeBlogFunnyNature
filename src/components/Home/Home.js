@@ -32,12 +32,8 @@ function Home() {
     setSkip(0);
   }
 
-
-
   /*  console.log(word); */
-
   let posts = usePosts(skip, limit, word, fieldToSearch);
-
 
     /* Reading the AuthorId or the tag from url and passing it as a parameter to fetch only articles for the specified author or tag */
     const {authorId } = useParams();
@@ -66,7 +62,7 @@ function Home() {
   
     const superlatives = [
       { adj: "cutest", id: "cute" },
-      { adj: "most beatiful", id: "bill" },
+      { adj: "most beautiful", id: "bill" },
       { adj: "ugliest", id: "ugly" },
       { adj: "scariest", id: "scary" },
       { adj: "most toxic", id: "toxic" }
