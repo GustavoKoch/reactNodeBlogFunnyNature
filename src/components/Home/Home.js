@@ -20,6 +20,11 @@ function Home() {
     setfieldToSearch(fieldToSearch);
   };
 
+  const handleResetSearch = () => {
+    setWord();
+    setfieldToSearch();
+  }
+
 /*  console.log(word); */
   
   let posts = usePosts(skip, word, fieldToSearch); 
@@ -47,7 +52,7 @@ function Home() {
 
   return (
     <div className="Home">
-      <NavBar searchFunction={(fieldToSearch, newWord) => setSearch(fieldToSearch, newWord)} />
+      <NavBar searchFunction={(fieldToSearch, newWord) => setSearch(fieldToSearch, newWord)} onResetSearch={handleResetSearch} />
       
       {posts.items.map((article, index) => (
         <BlogPosts

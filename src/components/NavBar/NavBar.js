@@ -10,7 +10,7 @@ import {
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 
-const NavBar = ({ searchFunction }) => {
+const NavBar = ({ searchFunction, onResetSearch }) => {
   const [input, setInput] = useState("");
 
   const [dropdown, setDropdown] = useState("Search By");
@@ -32,7 +32,7 @@ const NavBar = ({ searchFunction }) => {
       <nav className="navbar">
         <ul>
           <li>
-            <NavLink to={`/`}>Home</NavLink>
+            <NavLink to={`/`} onClick={onResetSearch}>Home</NavLink>
           </li>
           <li>
             <NavLink to={`/byTags/cute`}>Cute</NavLink>
