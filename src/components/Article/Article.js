@@ -8,7 +8,10 @@ import React, { useState } from "react";
 import TimeAgo from "react-timeago";
 import Parser from "html-react-parser";
 import { useParams } from "react-router-dom";
+
+/* Importing usePost for fetching the data  */
 import usePost from "../../services/usePost";
+import NavBar from "../NavBar/NavBar";
 
 export default function Article() {
   const [shouldAnimate, setAnimation] = useState(false);
@@ -16,19 +19,27 @@ export default function Article() {
   const [tweeter, setTweeter] = useState("");
   const [beer, setBeer] = useState("");
 
-  const { articleId } = useParams();
-  // console.log(posts.items);
+  const [skip, setSkip] = useState(0);
+  const [word, setWord] = useState();
+  const [fieldToSearch, setfieldToSearch] = useState();
 
-  // const post = posts.items.find((art) => art.sys.id == articleId);
+
+  const setSearch = (fieldToSearch, newWord) => {
+    setWord(newWord);
+    setfieldToSearch(fieldToSearch);
+  };
+
+  /* Reading the Id from url and passing it as a parameter to fetch only this article */
+  const { articleId } = useParams();
+
   const post = usePost(articleId);
 
   /* Code for the mail envelope animation */
-
   if (!post) return null;
-
   const mailIconStyle = {
     display: "flex",
   };
+
 
   const {
     titel: title,
@@ -42,8 +53,8 @@ export default function Article() {
   const descLong = documentToReactComponents(post.fields.descriptionLong);
   const authors = post.fields;
 
-  //console.log(authors.author);
-
+ 
+/* Function for listing autors in this card */
   const authorName = (x) => {
     // console.log(x);
     let allNames = "";
@@ -55,13 +66,12 @@ export default function Article() {
         allNames += ", " + authorObj.fields.name;
       }
     });
-
     return allNames;
   };
 
   const allAuthors = authorName(authors);
-
   const image = post.fields.image.fields.file.url;
+
 
   const heartToggle = () => {
     if (heart == "") setHearth("heart");
@@ -71,10 +81,7 @@ export default function Article() {
   const today = new Date();
   const startDate = new Date(post.fields.date);
 
-  /*   const diff=today - new Date(post.fields.date);
-  console.log(today);
-  console.log(new Date(post.fields.date));
-  console.log(diff); */
+
 
   const tweeterToggle = () => {
     if (tweeter == "") setTweeter("tweeter");
@@ -87,7 +94,10 @@ export default function Article() {
   };
 
   return (
+    <>
+    <NavBar searchFunction={(fieldToSearch, newWord) => setSearch(fieldToSearch, newWord)} />
     <div class="bigCard">
+     
       <Card class="card" style={{ width: "48rem" }}>
         <Card.Title>
           <h1>{title}</h1>
@@ -149,5 +159,6 @@ export default function Article() {
         </div>
       </Card>
     </div>
+    </>
   );
 }
