@@ -3,10 +3,12 @@ import "./Home.css";
 import "../NavBar/NavBar.css";
 import "../BlogPosts/BlogPosts.css";
 import NavBar from "../NavBar/NavBar";
+
 import BlogPosts from "../BlogPosts/BlogPosts";
 import usePosts from "../../services/usePosts";
 import usePostsByTags from "../../services/usePostsByTags";
 import usePostsByAuthor from "../../services/usePostsByAuthor";
+import { useParams } from "react-router-dom";
 
 function Home() {
   const [skip, setSkip] = useState(0);
@@ -20,30 +22,33 @@ function Home() {
 
 /*  console.log(word); */
   
-  const posts = usePosts(skip, word, fieldToSearch); 
-  const postsByTags = usePostsByTags("toxic");
-  const postsByAuthor = usePostsByAuthor("4PbKrwJt0JWYiUeCA2DXBa");
+  let posts = usePosts(skip, word, fieldToSearch); 
+  
 
-  console.log(postsByAuthor);
 
-  const numOfResults = (num) => {
-    /*   setHitsPage(num); */
-  };
+    /* Reading the AuthorId or the tag from url and passing it as a parameter to fetch only articles for the specified author or tag */
+    const {authorId } = useParams();
+    const {tag} = useParams();
+    const postsByAuthor = usePostsByAuthor(authorId)
+    const postsByTags = usePostsByTags(tag);
+    
+    console.log (authorId);
+    console.log (tag);
+/*     console.log (postsByAuthor); */
+    console.log (postsByTags);
 
-  /*  useEffect(() => {
-  // client.getEntry("6JskwXzBBLXONlsAUGspWg").then(entry => console.log(entry))
-  client.getEntries({ content_type: "blog" }).then(data => setStory(data))
 
- }, []) */
+  if (authorId){posts = postsByAuthor;};
+  if (tag){posts = postsByTags;};
 
   if (!posts) return null;
 
-  /*   console.log(posts.items);
-  console.log(posts.items[1].sys.id); */
+  console.log(posts);
 
   return (
     <div className="Home">
       <NavBar searchFunction={(fieldToSearch, newWord) => setSearch(fieldToSearch, newWord)} />
+      
       {posts.items.map((article, index) => (
         <BlogPosts
           key={index}

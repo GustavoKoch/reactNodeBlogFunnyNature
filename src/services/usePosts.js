@@ -21,7 +21,7 @@ const usePosts = (skip, word, fieldToSearch) => {
 
   useEffect(() => {
          
-         client.getEntries({ content_type: "blog", limit: 6, skip: skip, [param1]:value1 }).then(data => {console.log(data); setPosts(data); }) 
+         client.getEntries({ content_type: "blog", limit: 6, skip: skip, [param1]:value1 }).then(data => { setPosts(data); }) 
      /*    client.getEntry("6JskwXzBBLXONlsAUGspWg").then(entry => console.log(entry)) */
   }, [skip,param1, value1]);
 

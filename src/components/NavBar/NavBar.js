@@ -35,22 +35,22 @@ const NavBar = ({ searchFunction }) => {
             <NavLink to={`/`}>Home</NavLink>
           </li>
           <li>
-            <a href="#">Cute</a>
+            <NavLink to={`/byTags/cute`}>Cute</NavLink>
           </li>
           <li>
-            <a href="#">Beautiful</a>
+            <NavLink to={`/byTags/bill`}>Beatiful</NavLink>
           </li>
           <li>
-            <a href="#">Ugly</a>
+            <NavLink to={`/byTags/ugly`}>Ugly</NavLink>
           </li>
           <li>
-            <a href="#">Scary</a>
+            <NavLink to={`/byTags/scary`}>Scary</NavLink>
           </li>
           <li>
-            <a href="#">Toxic</a>
+            <NavLink to={`/byTags/toxic`}>Toxic</NavLink>
           </li>
           <li>
-            <a href="#">Author</a>
+            <NavLink to={`/Authors`}>Authors</NavLink>
           </li>
         </ul>
 
@@ -68,9 +68,9 @@ const NavBar = ({ searchFunction }) => {
                 <Dropdown.Item eventKey="Description">
                   Description
                 </Dropdown.Item>
-                <Dropdown.Item eventKey="Tags">Tags</Dropdown.Item>
+{/*                 <Dropdown.Item eventKey="Tags">Tags</Dropdown.Item>
                 <Dropdown.Divider />
-                <Dropdown.Item eventKey="Author">Author</Dropdown.Item>
+                <Dropdown.Item eventKey="Author">Author</Dropdown.Item> */}
               </DropdownButton>
             </Col>
             <Col xs lg="6" className="mb-3 mx-0 px-0">
