@@ -2,17 +2,17 @@ import { useState, useEffect } from "react";
 
 import client from "../contentful/client";
 
-const usePostsByAuthor = (author) => {
+const usePostsByAuthor = (skip, limit,author) => {
   const [posts, setPosts] = useState();
 
   useEffect(() => {
     client
       .getEntries({
-        content_type: "blog",
+        content_type: "blog",limit: limit, skip: skip,
         "fields.author.sys.id": author,
       })
       .then((entry) => setPosts(entry));
-  }, [author]);
+  }, [limit, skip,author]);
 
  /*  console.log(posts); */
 
