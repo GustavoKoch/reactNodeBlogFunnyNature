@@ -110,6 +110,7 @@ function Home() {
       <NavBar searchFunction={(fieldToSearch, newWord) => setSearch(fieldToSearch, newWord)} onResetSearch={handleResetSearch} />
       {nameAuthor&&<h2 className="Subtitle">Here the precious animals from <span className="authorName">{nameAuthor}</span></h2>}
       {tag&&<h2 className="Subtitle">These are the <span>{adjSuper}</span> animals of nature</h2>}
+      {word&&<h2 className="Subtitle">These are the results for <span className="word">"{word}"</span></h2>}
       {posts.items.map((article, index) => (
         <BlogPosts
           key={index}

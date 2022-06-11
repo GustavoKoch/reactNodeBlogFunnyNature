@@ -1,3 +1,4 @@
+
 .Subtitle{
     margin-bottom: 30px;
 }
@@ -10,6 +11,11 @@
 
 .Subtitle span.authorName{
     color:rgb(41, 210, 232);
+}
+
+.Subtitle span.word{
+    color:rgb(13, 147, 13);
+    
 }
 
 .bold{
