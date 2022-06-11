@@ -1,129 +1,140 @@
-.bigCard{
-    display: flex;
-    height: 100%;
-    margin: auto 10px;    
-    justify-content: center;  
-}
 
-.card {
-    border-radius:15px !important;
-    margin: 120px auto;
-}
+                .bigCard {
+                    display: flex;
+                    height: auto;
+                    margin: auto 10px;
+                    justify-content: center;
+                }
+                
+                .card {
+                    border-radius: 15px !important;
+                    margin: 120px auto;
+                }
+                
+                .card-title {
+                    display: flex;
+                    justify-content: space-between;
+                    text-align: left;
+                    height: 70px;
+                    /* font-size: 10px!important; */
+                    padding-top: 15px;
+                    padding-left: 10px;
+                }
+                
+                .card-title h3 {
+                    color: rgb(168, 166, 166);
+                    font-style: italic;
+                    padding-top: 10px;
+                    margin-right: 20px;
+                    ;
+                }
+                
+                .card-text {
+                    margin-bottom: 50px;
+                }
+                
+                .card-body {
+                    border-bottom: 0.5px solid rgb(193, 189, 189);
+                }
+                
+                .video {
+                    margin: 50px 0;
+                }
+                
+                #container2 {
+                    display: flex;
+                    text-align: center;
+                    margin-left: 20px;
+                    margin-top: 50px;
+                    ;
+                }
+                
+                #container3 {
+                    display: flex;
+                    justify-content: space-between;
+                    height: 50px;
+                    align-content: center;
+                    align-items: center;
+                    margin: 30px 15px;
+                    text-align: center;
+                    width: 100%;
+                }
+                
+                #Rating {
+                    display: flex;
+                    height: 30px;
+                    width: 150px;
+                    margin-right: 200px;
+                    margin-left: 0px;
+                    text-align: center;
+                    align-items: center;
+                    align-content: center;
+                    justify-content: space-around;
+                }
+                
+                #Rating span {
+                    text-align: center;
+                    align-self: center;
+                    height: auto;
+                    align-items: center;
+                }
+                
+                .icons {
+                    margin-right: 0px;
+                    display: flex;
+                    justify-content: space-between;
+                    width: 250px;
+                    ;
+                }
+                
+                #mail {
+                    /*   border: 1px solid black; */
+                    justify-items: end;
+                    justify-content: end;
+                    width: 220px;
+                    transform: scale(0.2, 0.25);
+                    margin: 0;
+                    padding-bottom: 50px;
+                }
+                /* #container4 {
+                    display: flex;
+                    justify-content: space-between;
+                    height: 30px;
+                    margin: 10px 0;
+                    margin-top: 50px;
+                    width: 100%;
+                    padding: 20px;
+                } */
+                
+                #author {
+                    font-weight: 700;
+                }
+                
+                #ratNum {
+                    padding-top: 5px;
+                    ;
+                }
+                /* Classes for icons changing color  */
+                
+                .heart {
+                    color: red;
+                }
+                
+                .tweeter {
+                    color: rgb(0, 213, 255);
+                }
+                
+                .beer {
+                    color: rgba(255, 157, 0, 0.874);
+                }
+                /* MEDIA */
+                
+                @media only screen and (max-width: 600px) {
+                    .bigCard {
+                        font-size: .9em;
+                    }
+                    .icons {
+                        width: 10px;
+                    }
+                }
 
-.card-title {
-    display: flex;
-    justify-content:space-between;
-    text-align: left;
-    height: 70px;
-    /* font-size: 10px!important; */
-    padding-top: 15px;
-    padding-left: 10px;
-}
-.card-title h3{
-    color: rgb(168, 166, 166);
-    font-style: italic;
-    padding-top: 10px;
-    margin-right: 20px;;
-}
-
-.card-text {
-    margin-bottom:50px ;
-}
-
-.card-body{
-    border-bottom: 0.5px solid rgb(193, 189, 189);
-}
-
-.video{
-    margin:50px 0;
-}
-
-#container2{
-    display: flex;
-    text-align: center;
-    margin-left: 20px;   
-    margin-top: 50px;;
-}
-#container3{
-    display: flex;
-    justify-content:space-between;
-    height: 50px;
-    align-content: center;
-    align-items: center;
-    margin: 30px 15px;
-    text-align: center;
-    width: 100%;
-}
-
-#Rating{
-   
-    display:flex;
-    height:30px;
-    width: 150px;
-    margin-right: 200px;
-    margin-left:0px;
-    text-align:center;
-    align-items: center;
-    align-content: center;
-    justify-content: space-around;
-}
-
-#Rating span {
-    text-align: center;
-    align-self: center;
-    height: auto;
-    align-items: center;   
-}
-
-
-.icons{
-    margin-right: 0px;   
-    display: flex;
-    justify-content: space-between;   
-    width: 250px;;
-}
-
-
-#mail { 
-  /*   border: 1px solid black; */
-    justify-items: end;
-    justify-content: end;
-    width: 220px;  
-    transform: scale(0.2, 0.25);   
-    margin: 0;
-    padding-bottom: 50px;
-}
-
-
-/* #container4{
-    display:flex;
-    justify-content:space-between;
-    height: 30px;
-    margin: 10px 0;
-    margin-top: 50px;
-    width: 100%;
-    padding: 20px;
-} */
-#author{
-    font-weight: 700;
-}
-
-#ratNum{
-    padding-top: 5px;;
-}
-
-
-/* Classes for icons changing color  */
-
-.heart{
-    color: red;
-  }
-
-.tweeter{
-    color: rgb(0, 213, 255);
-}
-
-.beer{
-    color: rgba(255, 157, 0, 0.874);
-
-}
