@@ -8,6 +8,7 @@ import React, { useState } from "react";
 import TimeAgo from "react-timeago";
 import Parser from "html-react-parser";
 import { useParams } from "react-router-dom";
+import { Markup } from 'interweave';
 
 /* Importing usePost for fetching the data  */
 import usePost from "../../services/usePost";
@@ -48,15 +49,15 @@ export default function Article() {
   } = post.fields; */
 
   const {
-    title: titel,
-    
-    descriptionLong: descLong,
+    title: titel,    
+    descriptionlong: descLong,
     author: author,
     rating: Rating,
     date:date
   } = post;
-  console.log(post);
-  console.log(post.descriptionLong);
+/*   console.log(post);
+  console.log(post. descriptionlong);
+  console.log(descLong); */
 
   /* --------------------------------   */
 
@@ -115,9 +116,11 @@ export default function Article() {
           </Card.Title>
           <Card.Img variant="top" /* src={image}  *//>
           <Card.Body>
-            <Card.Text>{descLong} </Card.Text>
+            <Card.Text><Markup content={descLong}/> </Card.Text>
 
-            <div className="video">{post.video}</div>
+            <div className="video">
+            <iframe width="560" height="315" src={post.video} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+            </div>
           </Card.Body>
 
           <div id="container2">

@@ -32,8 +32,13 @@ function Home() {
     setSkip(0);
   }
 
-  /*  console.log(word); */
-  let posts = usePosts(skip, limit, word, fieldToSearch);
+   
+  const allPosts = usePosts(skip, limit, word, fieldToSearch); 
+  let posts=allPosts;
+  
+
+
+   /*  console.log(posts); */
 
     /* Reading the AuthorId or the tag from url and passing it as a parameter to fetch only articles for the specified author or tag */
     const {authorId } = useParams();
@@ -52,10 +57,7 @@ function Home() {
       { Name: "André", id: "9HEY3sb5GMK4fCFdzT21P" },
       { Name: "Barbara", id: "4LAGm4ke1kU6ZwjfwPyIDc" },
       { Name: "Gustavo", id: "4PbKrwJt0JWYiUeCA2DXBa" },
-    ]; */
-
-
-    
+    ]; */    
     const allAuthors = [
       { Name: "Mike", id: "1" },
       { Name: "André", id: "2" },
@@ -64,8 +66,7 @@ function Home() {
     ];
 
       nameAuthor = allAuthors.find(element => element.id ==authorId).Name;
-      /* console.log(nameAuthor); */
-  
+      /* console.log(nameAuthor); */  
   };
   if (tag){posts = postsByTags;
   
@@ -79,7 +80,12 @@ function Home() {
     adjSuper = superlatives.find(element => element.id ==tag).adj;
    /*    console.log(adjSuper); */
   };
+
   if (!posts) return null;
+  if (!allPosts) return null;
+  
+  posts= allPosts.slice(skip, skip+6);
+  console.log(posts); 
 
   /* console.log(posts); */
 
@@ -106,10 +112,6 @@ function Home() {
   };
 
 
-
-
-
-
   return (
     <div className="Home">
       <NavBar searchFunction={(fieldToSearch, newWord) => setSearch(fieldToSearch, newWord)} onResetSearch={handleResetSearch} />
@@ -117,16 +119,17 @@ function Home() {
       {tag&&<h2 className="Subtitle">These are the <span>{adjSuper}</span> animals of nature</h2>}
       {word&&<h2 className="Subtitle">These are the results for <span className="word">"{word}"</span></h2>}
 
-      {posts.items.map((article, index) => (
+      {posts.map((article, index) => (
         <BlogPosts
           key={index}
-          title={article.fields.titel}
-          image={article.fields.image.fields.file.url}
-          imageAlt={article.fields.image.fields.description}
-          descriptionShort={article.fields.descriptionShort}
-          descriptionLong={article.fields.descriptionLong}
-          date={article.fields.date}
-          articleId={article.sys.id}
+          title={article.title}
+          /* image={article.image_posts} */
+          /* imageAlt={article.image_posts} */
+          descriptionShort={article.descriptionshort}
+          descriptionLong={article.descriptionlong}
+          date={article.date}
+          articleId={article.post_num}
+          author={article.author}
         />
       ))}
 
@@ -134,7 +137,7 @@ function Home() {
         onPrevPage={handlePrevPage}
         onNextPage={handleNextPage}
         onPage={handleOnPage}
-        total={posts.total}
+        total={allPosts.length}
         limit={limit}
         skip={skip}
       />

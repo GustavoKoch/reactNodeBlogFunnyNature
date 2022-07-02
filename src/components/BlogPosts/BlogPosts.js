@@ -10,7 +10,9 @@ const BlogPosts = ({
   descriptionLong,
   date,
   articleId,
+  author
 }) => {
+  console.log(articleId);
   return (
     <Card className="blog-post-card">
       <Card.Body className="blog-post-body">
@@ -23,8 +25,8 @@ const BlogPosts = ({
           <Button variant="primary">See More</Button>
         </NavLink>
         <div className="blog-post-footer">
-          <div className="blog-post-author">Written by: Gustavo</div>
-          <div className="blog-post-date">Posted: {date}</div>
+          <div className="blog-post-author">Written by: {author}</div>
+          <div className="blog-post-date">Posted: {date.slice(0, 10).split("-").reverse().join("-")}</div>
         </div>
       </Card.Body>
     </Card>

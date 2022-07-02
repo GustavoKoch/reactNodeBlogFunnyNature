@@ -42,7 +42,7 @@ if (!authors) return null;
       />
 
 
-      {authors.items.map((x, index) => (
+      {authors.map((x, index) => (
    /*       <NavLink to={`/byAuthors/${x.id}`}><h1 key={index}>{x.Name}</h1>;</NavLink>  */
          <CardAuthor key={index} 
             name={x.fields.name}

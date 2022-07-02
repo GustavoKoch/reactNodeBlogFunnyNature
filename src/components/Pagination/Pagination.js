@@ -12,7 +12,7 @@ const BlogPagination = ({
   skip,
 }) => {
   const numberOfPages = Math.ceil(total / limit);
-/*   console.log (numberOfPages); */
+  console.log (numberOfPages);  
 
   const currentPage = skip / limit + 1;
 
