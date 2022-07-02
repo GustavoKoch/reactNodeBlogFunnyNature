@@ -26,9 +26,6 @@ const usePosts = (skip, limit, word, fieldToSearch) => {
 
   if (!posts) return null;
 
-
-
-
   return posts;
 };
 

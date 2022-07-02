@@ -30,6 +30,7 @@ export default function Article() {
 
   /* Reading the Id from url and passing it as a parameter to fetch only this article */
   const { articleId } = useParams();
+  console.log(articleId);
 
   const post = usePost(articleId);
 
@@ -39,20 +40,31 @@ export default function Article() {
     display: "flex",
   };
 
-  const {
+/*   const {
     titel: title,
     descriptionShort: descshort,
     author2: author2,
     rating: Rating,
-  } = post.fields;
+  } = post.fields; */
+
+  const {
+    title: titel,
+    
+    descriptionLong: descLong,
+    author: author,
+    rating: Rating,
+    date:date
+  } = post;
+  console.log(post);
+  console.log(post.descriptionLong);
 
   /* --------------------------------   */
 
-  const descLong = documentToReactComponents(post.fields.descriptionLong);
-  const authors = post.fields;
+/*   const descLong = documentToReactComponents(post.fields.descriptionLong);
+  const authors = post.fields; */
 
   /* Function for listing autors in this card */
-  const authorName = (x) => {
+/*   const authorName = (x) => {
     // console.log(x);
     let allNames = "";
 
@@ -64,10 +76,10 @@ export default function Article() {
       }
     });
     return allNames;
-  };
+  }; */
 
-  const allAuthors = authorName(authors);
-  const image = post.fields.image.fields.file.url;
+  /* const allAuthors = authorName(authors); */
+ /*  const image = post.fields.image.fields.file.url; */
 
   const heartToggle = () => {
     if (heart == "") setHearth("heart");
@@ -75,7 +87,8 @@ export default function Article() {
   };
 
   const today = new Date();
-  const startDate = new Date(post.fields.date);
+ /*  const startDate = new Date(post.fields.date); */
+ const startDate = new Date(date);
 
   const tweeterToggle = () => {
     if (tweeter == "") setTweeter("tweeter");
@@ -94,22 +107,22 @@ export default function Article() {
           setSearch(fieldToSearch, newWord)
         }
       />
-      <div class="bigCard">
-        <Card class="card" style={{ width: "48rem" }}>
+      <div className="bigCard">
+        <Card className="card" style={{ width: "48rem" }}>
           <Card.Title>
-            <h1>{title}</h1>
-            <h4>{<TimeAgo date={startDate} />} ...</h4>
+            <h1>{titel}</h1>
+            <h4>{<TimeAgo date={date} />} ...</h4>
           </Card.Title>
-          <Card.Img variant="top" src={image} />
+          <Card.Img variant="top" /* src={image}  *//>
           <Card.Body>
             <Card.Text>{descLong} </Card.Text>
 
-            <div className="video">{Parser(post.fields.video)}</div>
+            <div className="video">{post.video}</div>
           </Card.Body>
 
           <div id="container2">
             <span id="author">By : </span> <span>&nbsp;</span>
-            {allAuthors}
+            {author}
           </div>
           <div id="container3">
             <div id="Rating">
@@ -123,7 +136,7 @@ export default function Article() {
               />
               <span id="ratNum">({Rating})</span>
             </div>
-            <div class="icons">
+            <div className="icons">
               <h3 className={beer} onClick={beerToggle}>
                 {" "}
                 <FaBeer />{" "}

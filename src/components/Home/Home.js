@@ -47,11 +47,20 @@ function Home() {
   if (authorId){posts = postsByAuthor;
 
 
-    const allAuthors = [
+ /*    const allAuthors = [
       { Name: "Mike", id: "7wTo5HuJVICF9jyMYNXpI0" },
       { Name: "André", id: "9HEY3sb5GMK4fCFdzT21P" },
       { Name: "Barbara", id: "4LAGm4ke1kU6ZwjfwPyIDc" },
       { Name: "Gustavo", id: "4PbKrwJt0JWYiUeCA2DXBa" },
+    ]; */
+
+
+    
+    const allAuthors = [
+      { Name: "Mike", id: "1" },
+      { Name: "André", id: "2" },
+      { Name: "Barbara", id: "4" },
+      { Name: "Gustavo", id: "3" },
     ];
 
       nameAuthor = allAuthors.find(element => element.id ==authorId).Name;
