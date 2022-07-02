@@ -1,18 +1,18 @@
 import { useState, useEffect } from "react";
 
-import client from "../contentful/client";
+/* import client from "../contentful/client"; */
 
 const usePostsByTags = (skip, limit, tags) => {
   const [posts, setPosts] = useState();
 
-  useEffect(() => {
+ /*  useEffect(() => {
     client
       .getEntries({
         content_type: "blog", limit: limit, skip: skip,
         "metadata.tags.sys.id[in]": tags,
       })
       .then((entry) => setPosts(entry));
-  }, [limit, skip,tags]);
+  }, [limit, skip,tags]); */
 
  /*  console.log(skip); */
 

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-import client from "../contentful/client";
+/* import client from "../contentful/client"; */
 
 
 const usePosts = (skip, limit, word, fieldToSearch) => {
@@ -29,7 +29,7 @@ const page= (limit+skip)/6
        
        .catch((e) => console.log(e.message)); */
 
-       fetch("http://localhost:5432/api/posts/all")     
+       fetch("http://localhost:3001/api/posts/all")     
        .then((res) => res.json())
        .then(data=> {
          /* console.log(data); */
@@ -54,9 +54,7 @@ const page= (limit+skip)/6
 
   if (!posts) return null;
 
-/*   const obj={posts, totalPosts}
 
-  return obj; */
   return posts;
 };
 

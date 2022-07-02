@@ -28,10 +28,7 @@ export default function Authors() {
 /*   console.log(allAuthors); */
 const authors = useAuthors();
 if (!authors) return null;
- console.log(authors.items); 
-
-
-
+ console.log(authors); 
 
   return (
     <div>
@@ -45,11 +42,11 @@ if (!authors) return null;
       {authors.map((x, index) => (
    /*       <NavLink to={`/byAuthors/${x.id}`}><h1 key={index}>{x.Name}</h1>;</NavLink>  */
          <CardAuthor key={index} 
-            name={x.fields.name}
-            email={x.fields.email}
-            pic={x.fields.avatar.fields.file}
-            desc={x.fields.authorDescription}
-            id={x.sys.id}        
+            name={x.name}
+            email={x.email}
+            pic={x.image_authors}
+            desc={x.description}
+            id={x.id}        
         /> 
     ))}
 

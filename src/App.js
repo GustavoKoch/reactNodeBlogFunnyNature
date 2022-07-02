@@ -17,12 +17,12 @@ function App() {
     fetch('http://localhost:5432/api/posts').then(res => res.json()).then(data => console.log(data)).catch(e => console.log(e.message))
 
   },[ ] ) */
-  
+
   return (
     <div className="App">
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/byAuthors/:authorId" element={<Home />} />
+        <Route path="/authors/:authorId" element={<Home />} />
         <Route path="/byTags/:tag" element={<Home />} />
         <Route path="/:articleId" element={<Article />} />
         <Route path="/Authors" element={<Authors />} />
