@@ -1,6 +1,7 @@
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { Card, Button } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
+import serverUrl from "../../serverUrl"
 
 const BlogPosts = ({
   title,
@@ -17,7 +18,7 @@ const BlogPosts = ({
     <Card className="blog-post-card">
       <Card.Body className="blog-post-body">
         <Card.Title className="blog-post-title">{title}</Card.Title>
-        <Card.Img variant="top" src={image} />
+        <Card.Img variant="top" src={`${serverUrl}/images/${image}`} />
         <Card.Text className="blog-post-description">
           {descriptionShort}
         </Card.Text>
