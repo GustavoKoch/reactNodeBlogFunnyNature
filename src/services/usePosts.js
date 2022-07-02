@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import serverUrl from "../serverUrl";
 
-import client from "../contentful/client";
+/* import client from "../contentful/client"; */
 
 const usePosts = (skip, limit, word, fieldToSearch) => {
   const [posts, setPosts] = useState();
@@ -34,6 +34,7 @@ const usePosts = (skip, limit, word, fieldToSearch) => {
         setPosts(data);
       })
 
+
       .catch((e) => console.log(e.message));
   }, [limit, skip, param1, value1]);
 
@@ -49,9 +50,9 @@ const usePosts = (skip, limit, word, fieldToSearch) => {
 
   if (!posts) return null;
 
+
   /*   const obj={posts, totalPosts}
 
-  return obj; */
   return posts;
 };
 

@@ -13,7 +13,7 @@ export default function CardAuthor({ name, email, pic, desc, id }) {
         <Card.Img className="author-image" variant="top" src={pic} />
         <Card.Body className="author-body">
           <Card.Title className="author-title">
-            <NavLink className="author-name centerName" to={`/byAuthors/${id}`}>
+            <NavLink className="author-name centerName" to={`/authors/${id}`}>
               <h2>{name}</h2>
             </NavLink>
           </Card.Title>

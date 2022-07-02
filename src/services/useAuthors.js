@@ -1,12 +1,10 @@
 import { useState, useEffect } from "react";
 import serverUrl from "../serverUrl";
 
-import client from "../contentful/client";
+/* import client from "../contentful/client"; */
 
 const useAuthors = () => {
   const [authors, setAuthors] = useState(); 
-
-
 
 
   useEffect(() => {
@@ -17,13 +15,13 @@ const useAuthors = () => {
      fetch(`${serverUrl}/api/authors`)     
      .then((res) => res.json())
      .then(data=> {
-       /* console.log(data); */
+       /* console.log(data);  */
       setAuthors(data)}) 
      
      .catch((e) => console.log(e.message));
   }, []);
 
-  if (!authors) return null;
+  
 
 /*   console.log(authors); */
 

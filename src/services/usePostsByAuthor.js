@@ -1,18 +1,32 @@
 import { useState, useEffect } from "react";
 
-import client from "../contentful/client";
+/* import client from "../contentful/client"; */
 
-const usePostsByAuthor = (skip, limit,author) => {
+const usePostsByAuthor = (id) => {
+ 
   const [posts, setPosts] = useState();
-
+  
   useEffect(() => {
-    client
+    if (id) {
+      fetch("http://localhost:3001/api/authors/"+id)     
+      .then((res) => res.json())
+      .then(data=> {
+      /*   console.log(data);  */
+       setPosts(data)}) 
+      
+      .catch((e) => console.log(e.message));
+    }
+   
+
+
+/*     client
       .getEntries({
         content_type: "blog",limit: limit, skip: skip,
         "fields.author.sys.id": author,
       })
-      .then((entry) => setPosts(entry));
-  }, [limit, skip,author]);
+      .then((entry) => setPosts(entry)); */
+
+  }, [id]);
 
  /*  console.log(posts); */
 

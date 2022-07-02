@@ -33,7 +33,7 @@ function Home() {
   }
 
    
-  const allPosts = usePosts(skip, limit, word, fieldToSearch); 
+  let allPosts = usePosts(skip, limit, word, fieldToSearch); 
   let posts=allPosts;
   
 
@@ -41,15 +41,17 @@ function Home() {
    /*  console.log(posts); */
 
     /* Reading the AuthorId or the tag from url and passing it as a parameter to fetch only articles for the specified author or tag */
-    const {authorId } = useParams();
+    const { authorId } = useParams();
     const {tag} = useParams();
-    const postsByAuthor = usePostsByAuthor(skip,limit,authorId)
+    
+    const postsByAuthor = usePostsByAuthor(authorId)
+    console.log(postsByAuthor);
     const postsByTags = usePostsByTags(skip,limit,tag);
 
 
     let nameAuthor;
     let adjSuper;
-  if (authorId){posts = postsByAuthor;
+  if (authorId){allPosts = postsByAuthor;
 
 
  /*    const allAuthors = [
@@ -68,7 +70,7 @@ function Home() {
       nameAuthor = allAuthors.find(element => element.id ==authorId).Name;
       /* console.log(nameAuthor); */  
   };
-  if (tag){posts = postsByTags;
+  if (tag){allPosts = postsByTags;
   
     const superlatives = [
       { adj: "cutest", id: "cute" },
@@ -85,7 +87,7 @@ function Home() {
   if (!allPosts) return null;
   
   posts= allPosts.slice(skip, skip+6);
-  console.log(posts); 
+   console.log(posts); 
 
   /* console.log(posts); */
 
