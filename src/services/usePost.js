@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import serverUrl from "../serverUrl";
 
 /* import client from "../contentful/client"; */
 
@@ -7,7 +8,7 @@ const usePost = (id) => {
  /*  console.log(id); */
 
   useEffect(() => {
-    fetch("http://localhost:5432/api/posts/"+id)
+    fetch(`${serverUrl}/api/posts/${id}`)
      
       .then((res) => res.json())
       .then(data=> setPost(data[0]))

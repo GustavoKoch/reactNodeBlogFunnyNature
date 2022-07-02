@@ -123,8 +123,8 @@ function Home() {
         <BlogPosts
           key={index}
           title={article.title}
-          /* image={article.image_posts} */
-          /* imageAlt={article.image_posts} */
+          image={article.image_posts}
+          imageAlt={article.image_posts}
           descriptionShort={article.descriptionshort}
           descriptionLong={article.descriptionlong}
           date={article.date}

@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import serverUrl from "../serverUrl";
 
 import client from "../contentful/client";
 
@@ -13,7 +14,7 @@ const useAuthors = () => {
       /*    client.getEntries({ content_type: "author",  }).then(data => { console.log(data);setAuthors(data); })  */
      /*    client.getEntry("6JskwXzBBLXONlsAUGspWg").then(entry => console.log(entry)) */
 
-     fetch("http://localhost:5432/api/authors")     
+     fetch(`${serverUrl}/api/authors`)     
      .then((res) => res.json())
      .then(data=> {
        /* console.log(data); */
