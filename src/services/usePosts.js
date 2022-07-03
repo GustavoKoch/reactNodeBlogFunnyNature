@@ -55,7 +55,7 @@ const usePosts = (word, fieldToSearch) => {
   if (!posts) return null;
 
 
-  /*   const obj={posts, totalPosts}
+
 
   return posts;
 };

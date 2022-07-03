@@ -17,7 +17,7 @@ export default function CardAuthor({ name, email, pic, desc, id }) {
               <h2>{name}</h2>
             </NavLink>
           </Card.Title>
-          <Card.Text my-0 py-0>{desc}</Card.Text>
+          <Card.Text >{desc}</Card.Text>
           {/*  <Button variant="primary">Go somewhere</Button> */}
           <h3 className="author-email">📧 {email}</h3>
         </Card.Body>

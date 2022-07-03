@@ -10,7 +10,9 @@ const useAuthors = () => {
      /*    client.getEntries({ content_type: "author",  }).then(data => { console.log(data);setAuthors(data); })  */
      /*    client.getEntry("6JskwXzBBLXONlsAUGspWg").then(entry => console.log(entry)) */
 
-     fetch(`${serverUrl}/api/authors`)     
+     /* fetch(`${serverUrl}/api/authors`)      */
+
+     fetch("http://localhost:3001/api/authors")
      .then((res) => res.json())
      .then(data=> {
        /* console.log(data);  */
