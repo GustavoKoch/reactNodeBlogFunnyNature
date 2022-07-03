@@ -17,7 +17,7 @@ const BlogPosts = ({
     <Card className="blog-post-card">
       <Card.Body className="blog-post-body">
         <Card.Title className="blog-post-title">{title}</Card.Title>
-        <Card.Img variant="top" src={image} />
+        <Card.Img variant="top" src={`http://localhost:3001/animal-images/${image}`}/>
         <Card.Text className="blog-post-description">
           {descriptionShort}
         </Card.Text>

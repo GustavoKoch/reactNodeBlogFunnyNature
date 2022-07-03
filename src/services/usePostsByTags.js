@@ -1,28 +1,25 @@
 import { useState, useEffect } from "react";
 
-/* import client from "../contentful/client"; */
+import client from "../contentful/client";
 
-const usePostsByTags = (skip, limit, tags) => {
+const usePostsByTags = (tag) => {
   const [posts, setPosts] = useState();
+  /* console.log(tag); */
+  useEffect(() => {
+    if (tag) {
+      fetch("http://localhost:3001/api/posts-tags/"+tag)     
+      .then((res) => res.json())
+      .then(data=> {
+       /*   console.log(data);  */
+       setPosts(data)}) 
+      
+      .catch((e) => console.log(e.message));
+    }}, [tag]);  
 
- /*  useEffect(() => {
-    client
-      .getEntries({
-        content_type: "blog", limit: limit, skip: skip,
-        "metadata.tags.sys.id[in]": tags,
-      })
-      .then((entry) => setPosts(entry));
-  }, [limit, skip,tags]); */
-
- /*  console.log(skip); */
+ /*  console.log(skip) */;
 
   return posts;
 };
 
 export default usePostsByTags;
 
-/*    client
-        .getEntries({
-          content_type: "blogPost",
-          "metadata.tags.sys.id[in]": "tag1,tag2,tag3"
-        }) */

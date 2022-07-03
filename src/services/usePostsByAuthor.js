@@ -8,7 +8,7 @@ const usePostsByAuthor = (id) => {
   
   useEffect(() => {
     if (id) {
-      fetch("http://localhost:3001/api/authors/"+id)     
+      fetch("http://localhost:3001/api/posts-authors/"+id)     
       .then((res) => res.json())
       .then(data=> {
       /*   console.log(data);  */

@@ -5,10 +5,8 @@ import { useState, useEffect } from "react";
 const useAuthors = () => {
   const [authors, setAuthors] = useState(); 
 
-
-  useEffect(() => {
-         
-      /*    client.getEntries({ content_type: "author",  }).then(data => { console.log(data);setAuthors(data); })  */
+  useEffect(() => {         
+     /*    client.getEntries({ content_type: "author",  }).then(data => { console.log(data);setAuthors(data); })  */
      /*    client.getEntry("6JskwXzBBLXONlsAUGspWg").then(entry => console.log(entry)) */
 
      fetch("http://localhost:3001/api/authors")     
@@ -18,9 +16,7 @@ const useAuthors = () => {
       setAuthors(data)}) 
      
      .catch((e) => console.log(e.message));
-  }, []);
-
-  
+  }, []);  
 
 /*   console.log(authors); */
 

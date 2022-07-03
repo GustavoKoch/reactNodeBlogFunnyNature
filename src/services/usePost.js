@@ -7,13 +7,14 @@ const usePost = (id) => {
  /*  console.log(id); */
 
   useEffect(() => {
+    if (id) {
     fetch("http://localhost:3001/api/posts/"+id)
      
       .then((res) => res.json())
       .then(data=> setPost(data[0]))
         /* console.log(data); */
       
-      .catch((e) => console.log(e.message));
+      .catch((e) => console.log(e.message));}
   }, [id]);
 
   /*   useEffect(() => {

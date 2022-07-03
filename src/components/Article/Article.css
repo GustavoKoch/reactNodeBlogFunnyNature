@@ -30,9 +30,14 @@
     margin-right: 20px;
 
 }
+.card-img-top {
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
 
-.card-text {
-    margin-bottom: 50px;
+span p.card-text {
+    height:0;
+    margin: 0;
 }
 
 .card-body {

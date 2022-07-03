@@ -31,12 +31,9 @@ function Home() {
     setfieldToSearch();
     setSkip(0);
   }
-
    
-  let allPosts = usePosts(skip, limit, word, fieldToSearch); 
-  let posts=allPosts;
-  
-
+  let allPosts = usePosts(word, fieldToSearch); 
+  let posts=allPosts; 
 
    /*  console.log(posts); */
 
@@ -44,22 +41,15 @@ function Home() {
     const { authorId } = useParams();
     const {tag} = useParams();
     
-    const postsByAuthor = usePostsByAuthor(authorId)
-    console.log(postsByAuthor);
-    const postsByTags = usePostsByTags(skip,limit,tag);
-
+    const postsByAuthor = usePostsByAuthor(authorId)  
+    const postsByTags = usePostsByTags(tag);
+    console.log(postsByTags);
 
     let nameAuthor;
     let adjSuper;
   if (authorId){allPosts = postsByAuthor;
 
-
- /*    const allAuthors = [
-      { Name: "Mike", id: "7wTo5HuJVICF9jyMYNXpI0" },
-      { Name: "André", id: "9HEY3sb5GMK4fCFdzT21P" },
-      { Name: "Barbara", id: "4LAGm4ke1kU6ZwjfwPyIDc" },
-      { Name: "Gustavo", id: "4PbKrwJt0JWYiUeCA2DXBa" },
-    ]; */    
+   
     const allAuthors = [
       { Name: "Mike", id: "1" },
       { Name: "André", id: "2" },
@@ -74,22 +64,20 @@ function Home() {
   
     const superlatives = [
       { adj: "cutest", id: "cute" },
-      { adj: "most beautiful", id: "bill" },
+      { adj: "most beautiful", id: "beautiful" },
       { adj: "ugliest", id: "ugly" },
       { adj: "scariest", id: "scary" },
       { adj: "most toxic", id: "toxic" }
     ];
     adjSuper = superlatives.find(element => element.id ==tag).adj;
-   /*    console.log(adjSuper); */
+
   };
 
   if (!posts) return null;
   if (!allPosts) return null;
   
   posts= allPosts.slice(skip, skip+6);
-   console.log(posts); 
-
-  /* console.log(posts); */
+   console.log(posts);  
 
   /*   const posts = usePosts(skip, limit); */
 
@@ -125,7 +113,7 @@ function Home() {
         <BlogPosts
           key={index}
           title={article.title}
-          /* image={article.image_posts} */
+           image={article.image_posts} 
           /* imageAlt={article.image_posts} */
           descriptionShort={article.descriptionshort}
           descriptionLong={article.descriptionlong}

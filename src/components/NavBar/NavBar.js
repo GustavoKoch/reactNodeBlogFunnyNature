@@ -32,7 +32,7 @@ const NavBar = ({ searchFunction, onResetSearch }) => {
     onResetSearch();
     searchFunction(dropdown, input);
 
-    navigate("/");
+    navigate("/api/postSearch?description="+input);
     /*     setInput("");
     setDropdown("Search By"); */
   };
@@ -50,27 +50,27 @@ const NavBar = ({ searchFunction, onResetSearch }) => {
             </NavLink>
           </li>
           <li>
-            <NavLink to={`/byTags/cute`} onClick={onResetSearch1}>
+            <NavLink to={`/api/posts-tags/cute`} onClick={onResetSearch1}>
               Cute
             </NavLink>
           </li>
           <li>
-            <NavLink to={`/byTags/bill`} onClick={onResetSearch1}>
+            <NavLink to={`/api/posts-tags/beautiful`} onClick={onResetSearch1}>
               Beautiful
             </NavLink>
           </li>
           <li>
-            <NavLink to={`/byTags/ugly`} onClick={onResetSearch1}>
+            <NavLink to={`/api/posts-tags/ugly`} onClick={onResetSearch1}>
               Ugly
             </NavLink>
           </li>
           <li>
-            <NavLink to={`/byTags/scary`} onClick={onResetSearch1}>
+            <NavLink to={`/api/posts-tags/scary`} onClick={onResetSearch1}>
               Scary
             </NavLink>
           </li>
           <li>
-            <NavLink to={`/byTags/toxic`} onClick={onResetSearch1}>
+            <NavLink to={`/api/posts-tags/toxic`} onClick={onResetSearch1}>
               Toxic
             </NavLink>
           </li>

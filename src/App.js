@@ -22,8 +22,9 @@ function App() {
     <div className="App">
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/authors/:authorId" element={<Home />} />
-        <Route path="/byTags/:tag" element={<Home />} />
+        <Route path="api/posts-authors/:authorId" element={<Home />} />
+        <Route path="api/postSearch" element={<Home />} />
+        <Route path="/api/posts-tags/:tag" element={<Home />} />
         <Route path="/:articleId" element={<Article />} />
         <Route path="/Authors" element={<Authors />} />
       </Routes>

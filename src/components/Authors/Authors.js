@@ -44,7 +44,7 @@ if (!authors) return null;
          <CardAuthor key={index} 
             name={x.name}
             email={x.email}
-            pic={x.image_authors}
+            pic={`http://localhost:3001/author-images/${x.image_authors}`}
             desc={x.description}
             id={x.id}        
         /> 

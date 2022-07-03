@@ -51,6 +51,7 @@ export default function Article() {
   const {
     title: titel,    
     descriptionlong: descLong,
+    image_posts:image,
     author: author,
     rating: Rating,
     date:date
@@ -114,9 +115,9 @@ export default function Article() {
             <h1>{titel}</h1>
             <h4>{<TimeAgo date={date} />} ...</h4>
           </Card.Title>
-          <Card.Img variant="top" /* src={image}  *//>
+          <Card.Img variant="top"  src={`http://localhost:3001/animal-images/${image}`}/>
           <Card.Body>
-            <Card.Text><Markup content={descLong}/> </Card.Text>
+            <Card.Text><Markup content={descLong} noHtml /> </Card.Text>
 
             <div className="video">
             <iframe width="560" height="315" src={post.video} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
