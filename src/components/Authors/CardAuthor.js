@@ -1,6 +1,6 @@
 import { Card } from "react-bootstrap";
-import { useParams, NavLink } from "react-router-dom";
-import React, { useState } from "react";
+import {  NavLink } from "react-router-dom";
+import React from "react";
 
 export default function CardAuthor({ name, email, pic, desc, id }) {
   /* console.log(pic);

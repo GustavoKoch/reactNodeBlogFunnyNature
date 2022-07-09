@@ -1,4 +1,4 @@
-import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
+
 import { Card, Button } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import serverUrl from "../../serverUrl"
@@ -13,7 +13,7 @@ const BlogPosts = ({
   articleId,
   author
 }) => {
-  console.log(articleId);
+  /* console.log(articleId); */
   return (
     <Card className="blog-post-card">
       <Card.Body className="blog-post-body">
