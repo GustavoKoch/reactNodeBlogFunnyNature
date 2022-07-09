@@ -1,5 +1,5 @@
 // const contentful = require("contentful"); // Node environment (CommonJS)
-import { createClient } from "contentful" // JS (module syntax)
+/* import { createClient } from "contentful" // JS (module syntax)
 
 const client = createClient({
     space: process.env.REACT_APP_SPACE_ID,
@@ -7,4 +7,4 @@ const client = createClient({
 })
 
 
-export default client
+export default client */
