@@ -1,8 +1,5 @@
-<<<<<<< HEAD
+
 import React, { useState } from "react";
-=======
-import React, { useState, useEffect } from "react";
->>>>>>> 3d0090d1ab5c267e27fbf7dba5c66f81694d4367
 import "../BlogPosts/BlogPosts.css";
 import "./Home.css";
 import "../NavBar/NavBar.css";

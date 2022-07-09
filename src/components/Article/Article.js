@@ -9,10 +9,8 @@ import TimeAgo from "react-timeago";
 import Parser from "html-react-parser";
 import { useParams } from "react-router-dom";
 import { Markup } from 'interweave';
-<<<<<<< HEAD
 import serverUrl from "../../serverUrl"
-=======
->>>>>>> 3d0090d1ab5c267e27fbf7dba5c66f81694d4367
+
 
 /* Importing usePost for fetching the data  */
 import usePost from "../../services/usePost";
