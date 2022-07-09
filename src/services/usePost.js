@@ -10,6 +10,7 @@ const usePost = (id) => {
   useEffect(() => {
 
     if (id) {
+
     fetch(`${serverUrl}/api/posts/${id}`)
 
 /*     fetch(`${serverUrl}/api/posts/${id}`) */

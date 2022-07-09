@@ -21,22 +21,26 @@ const usePosts = (word, fieldToSearch) => {
        .catch((e) => console.log(e.message)); */
 
 
+
        if (fieldToSearch === "Description") {
         /* console.log("Hola"); */
 
         fetch(`${serverUrl}/api/posts-description?search=${word}`)
       /*  fetch("http://localhost:3001/api/posts-description?search="+word) */
           /*   `${serverUrl}/api/posts-description?search=${word}` */     
+
        .then((res) => res.json())
        .then(data=> {
           console.log(data);
         setPosts(data)})        
        .catch((e) => console.log(e.message));
 
+
        }else if (fieldToSearch === "Title") {  
 
       /*  fetch("http://localhost:3001/api/posts-title?search="+word)   */  
       fetch(`${serverUrl}/api/posts-title?search=${word}`)
+
        .then((res) => res.json())
        .then(data=> {
          /* console.log(data); */
@@ -44,7 +48,9 @@ const usePosts = (word, fieldToSearch) => {
        .catch((e) => console.log(e.message));
 
        }else{
+
        fetch(`${serverUrl}/api/posts/all`)     
+
        .then((res) => res.json())
        .then(data=> {
          /* console.log(data); */

@@ -5,7 +5,10 @@ import { Card } from "react-bootstrap";
 import CardAuthor from"./CardAuthor.js";
 /* Importing usePost for fetching the data  */
 import useAuthors from "../../services/useAuthors";
+<<<<<<< HEAD
 import serverUrl from "../../serverUrl";
+=======
+>>>>>>> 3d0090d1ab5c267e27fbf7dba5c66f81694d4367
 
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -45,7 +48,9 @@ if (!authors) return null;
          <CardAuthor key={index} 
             name={x.name}
             email={x.email}
+
             pic={`${serverUrl}/author-images/${x.image_authors}`}
+
             desc={x.description}
             id={x.id}        
         /> 

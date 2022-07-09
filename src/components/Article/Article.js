@@ -9,7 +9,10 @@ import TimeAgo from "react-timeago";
 import Parser from "html-react-parser";
 import { useParams } from "react-router-dom";
 import { Markup } from 'interweave';
+<<<<<<< HEAD
 import serverUrl from "../../serverUrl"
+=======
+>>>>>>> 3d0090d1ab5c267e27fbf7dba5c66f81694d4367
 
 /* Importing usePost for fetching the data  */
 import usePost from "../../services/usePost";
@@ -85,7 +88,9 @@ export default function Article() {
  /*  const image = post.fields.image.fields.file.url; */
 
   const heartToggle = () => {
+
     if (heart === "") setHearth("heart");
+
     else setHearth("");
   };
 
@@ -94,12 +99,16 @@ export default function Article() {
  const startDate = new Date(date);
 
   const tweeterToggle = () => {
+
     if (tweeter === "") setTweeter("tweeter");
+
     else setTweeter("");
   };
 
   const beerToggle = () => {
+
     if (beer === "") setBeer("beer");
+
     else setBeer("");
   };
 
@@ -116,7 +125,9 @@ export default function Article() {
             <h1>{titel}</h1>
             <h4>{<TimeAgo date={date} />} ...</h4>
           </Card.Title>
+
           <Card.Img variant="top"  src={`${serverUrl}/animal-images/${image}`}/>
+
           <Card.Body>
             <Card.Text><Markup content={descLong} noHtml /> </Card.Text>
 

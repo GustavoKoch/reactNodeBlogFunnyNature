@@ -21,6 +21,7 @@ const BlogPosts = ({
 
         <Card.Img variant="top" src={`${serverUrl}/animal-images/${image}`}/>
 
+
         <Card.Text className="blog-post-description">
           {descriptionShort}
         </Card.Text>

@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import serverUrl from "../serverUrl";
 
+
 import client from "../contentful/client";
 
 const usePostsByTags = (tag) => {
@@ -9,6 +10,7 @@ const usePostsByTags = (tag) => {
   useEffect(() => {
     if (tag) {
       fetch(`${serverUrl}/api/posts-tags/${tag}`)     
+
       .then((res) => res.json())
       .then(data=> {
        /*   console.log(data);  */

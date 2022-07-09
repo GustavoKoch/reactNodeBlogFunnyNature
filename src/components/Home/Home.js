@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import React, { useState } from "react";
+=======
+import React, { useState, useEffect } from "react";
+>>>>>>> 3d0090d1ab5c267e27fbf7dba5c66f81694d4367
 import "../BlogPosts/BlogPosts.css";
 import "./Home.css";
 import "../NavBar/NavBar.css";
@@ -57,7 +61,9 @@ function Home() {
       { Name: "Gustavo", id: "3" },
     ];
 
+
       nameAuthor = allAuthors.find(element => element.id ===authorId).Name;
+
       /* console.log(nameAuthor); */  
   };
   if (tag){allPosts = postsByTags;
@@ -70,6 +76,7 @@ function Home() {
       { adj: "most toxic", id: "toxic" }
     ];
     adjSuper = superlatives.find(element => element.id ===tag).adj;
+
 
   };
 

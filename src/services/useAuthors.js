@@ -14,6 +14,7 @@ const useAuthors = () => {
 
      fetch(`${serverUrl}/api/authors`)
    /*   `${serverUrl}/api/posts/${id}` */
+
      .then((res) => res.json())
      .then(data=> {
        /* console.log(data);  */
