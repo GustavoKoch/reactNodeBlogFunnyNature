@@ -1,0 +1,35 @@
+.blog-name {
+    margin-top: 2em;
+    font-size: 3rem;
+}
+
+.navbar ul {
+    margin: 0 auto !important;
+}
+
+.navbar li {
+    display: inline-block;
+    font-size: 1.2rem;
+    padding: 0.6em;
+    margin: 0;
+}
+
+.navbar a {
+    text-decoration: none;
+}
+
+
+/* MEDIA */
+
+@media only screen and (max-width: 600px) {
+    .blog-name {
+        font-size: 2rem;
+        float: none;
+        transition: all 1s;
+    }
+    .navbar li {
+        font-size: .9rem;
+        float: none;
+        transition: all 1s;
+    }
+}

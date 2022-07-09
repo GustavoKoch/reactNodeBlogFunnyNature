@@ -1,0 +1,36 @@
+.blog-post-card {
+    display: flex;
+    margin: 3em 5em 0 5em;
+    width: 20em;
+}
+
+.card-text {
+    min-height: 180px!important;
+}
+
+.blog-post-title {
+    padding-bottom: .4em;
+}
+
+.blog-post-description {
+    padding-top: 1em;
+}
+
+.blog-post-footer {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 1em;
+}
+
+.blog-post-author {
+    font-size: .6rem;
+}
+
+.blog-post-date {
+    font-size: .6rem;
+}
+
+.card {
+    display: inline-block!important;
+    margin: 10px!important;
+}

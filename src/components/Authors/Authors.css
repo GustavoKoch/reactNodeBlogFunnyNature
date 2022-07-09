@@ -1,0 +1,37 @@
+.author-card {
+    width: 400px;
+}
+
+.author-name {
+    text-decoration: none;
+}
+
+.author-name h2 {
+    text-align: center;
+    font-size: 1em;
+}
+.author-title.card-title {
+    text-align: center;
+    align-self: center;
+    margin:0px;
+    padding:0px!important;
+    height: 45px;;
+}
+
+.author-email {
+    font-size: .9em;
+}
+
+.centerName {
+    width: 100%;
+}
+
+/* .author-body.card-body{
+    margin:0px;
+    padding: 0;
+    max-height:280px!important;} */
+.author-body .card-text{
+    margin:0px;
+    padding: 0;
+    max-height:100px!important;
+}
